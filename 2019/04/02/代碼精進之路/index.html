@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="keywords" content="代碼精進之路-筆記, Turboted&#39;s Home">
     <meta name="description" content="閱讀極客時間-代碼精進之路，將一些重點項目記錄如下
-不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤以下是apple 著名的 RedGoToFail 漏洞
-    if ((error = doSomething()) ">
+不要過份認為自己的代碼不會犯錯，就連apple的工程師都會犯下低級錯誤以下是apple 著名的 RedGoToFail 漏洞
+    if ((error = doSomething())">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -408,7 +408,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>閱讀極客時間-代碼精進之路，將一些重點項目記錄如下</p>
-<h4 id="不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤"><a href="#不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤" class="headerlink" title="不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤"></a>不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤</h4><p>以下是apple 著名的<font color="red"> RedGoToFail </font>漏洞</p>
+<h4 id="不要過份認為自己的代碼不會犯錯，就連apple的工程師都會犯下低級錯誤"><a href="#不要過份認為自己的代碼不會犯錯，就連apple的工程師都會犯下低級錯誤" class="headerlink" title="不要過份認為自己的代碼不會犯錯，就連apple的工程師都會犯下低級錯誤"></a>不要過份認為自己的代碼不會犯錯，就連apple的工程師都會犯下低級錯誤</h4><p>以下是apple 著名的<font color="red"> RedGoToFail </font>漏洞</p>
 <pre><code>    if ((error = doSomething()) != 0)
         goto fail;
         goto fail;
@@ -416,10 +416,21 @@
         goto fail;
 fail:
     return error;
-</code></pre><h2 id="什麼是好的代碼"><a href="#什麼是好的代碼" class="headerlink" title="什麼是好的代碼"></a>什麼是好的代碼</h2><p>“好” 的代碼<br></p>
-<p>容易理解<br><br>有明顯的安全問題<br><br>能夠滿足最關鍵的需求<br><br>有充分的註釋<br><br>使用規範的命名<br><br>經過充分的測試<br></p>
-<p><font color="green"> 最適合當前現實環境的代碼，才是最優秀的代碼 </font><br></p>
-<p>“壞” 的代碼<br><br>難以閱讀的代碼<br><br>浪費大量計算機資源的代碼<br><br>代碼風格混亂的代碼<br><br>複雜的、不直觀的代碼<br><br>有經過適當測試的代碼<br></p>
+</code></pre><h2 id="什麼是好的代碼"><a href="#什麼是好的代碼" class="headerlink" title="什麼是好的代碼"></a>什麼是好的代碼</h2><h3 id="好-的代碼"><a href="#好-的代碼" class="headerlink" title="好 的代碼"></a>好 的代碼<br></h3><ul>
+<li>容易理解<br></li>
+<li>有明顯的安全問題<br></li>
+<li>能夠滿足最關鍵的需求<br></li>
+<li>有充分的註釋<br></li>
+<li>使用規範的命名<br></li>
+<li>經過充分的測試<br><br><font color="green"> * 最適合當前現實環境的代碼，才是最優秀的代碼 </font><br></li>
+</ul>
+<h3 id="壞-的代碼"><a href="#壞-的代碼" class="headerlink" title="壞 的代碼"></a>壞 的代碼<br></h3><ul>
+<li>難以閱讀的代碼<br></li>
+<li>浪費大量計算機資源的代碼<br></li>
+<li>代碼風格混亂的代碼<br></li>
+<li>複雜的、不直觀的代碼<br></li>
+<li>有經過適當測試的代碼<br></li>
+</ul>
 <h3 id="盡量不要使用條件運算符，而使用條件語句"><a href="#盡量不要使用條件運算符，而使用條件語句" class="headerlink" title="盡量不要使用條件運算符，而使用條件語句"></a>盡量不要使用條件運算符，而使用條件語句</h3><p>條件語句 <font color="green"> ○ </font></p>
 <pre><code>if (variable != null) {
    return variable.getSomething();
@@ -680,8 +691,8 @@ Model：实体模型（数据的获取、存储、数据状</div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">閱讀極客時間-代碼精進之路，將一些重點項目記錄如下
-不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤以下是apple 著名的 RedGoToFail 漏洞
-    if ((error = doSomething()) </div>
+不要過份認為自己的代碼不會犯錯，就連apple的工程師都會犯下低級錯誤以下是apple 著名的 RedGoToFail 漏洞
+    if ((error = doSomething())</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-02
