@@ -4,25 +4,6 @@
   
     
     <entry>
-      <title>代碼精進之路-筆記</title>
-      <link href="/2019/04/02/%E4%BB%A3%E7%A2%BC%E7%B2%BE%E9%80%B2%E4%B9%8B%E8%B7%AF/"/>
-      <url>/2019/04/02/%E4%BB%A3%E7%A2%BC%E7%B2%BE%E9%80%B2%E4%B9%8B%E8%B7%AF/</url>
-      
-        <content type="html"><![CDATA[<p>閱讀極客時間-代碼精進之路，將一些重點項目記錄如下</p><h4 id="不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤"><a href="#不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤" class="headerlink" title="不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤"></a>不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤</h4><p>以下是apple 著名的<font color="red"> RedGoToFail </font>漏洞</p><pre><code>    if ((error = doSomething()) != 0)        goto fail;        goto fail;    if ((error= doMore()) != 0)        goto fail;fail:    return error;</code></pre><h2 id="什麼是好的代碼"><a href="#什麼是好的代碼" class="headerlink" title="什麼是好的代碼"></a>什麼是好的代碼</h2><p>“好” 的代碼<br></p><p>容易理解<br><br>有明顯的安全問題<br><br>能夠滿足最關鍵的需求<br><br>有充分的註釋<br><br>使用規範的命名<br><br>經過充分的測試<br></p><p><font color="green"> 最適合當前現實環境的代碼，才是最優秀的代碼 </font><br></p><p>“壞” 的代碼<br><br>難以閱讀的代碼<br><br>浪費大量計算機資源的代碼<br><br>代碼風格混亂的代碼<br><br>複雜的、不直觀的代碼<br><br>有經過適當測試的代碼<br></p><h3 id="盡量不要使用條件運算符，而使用條件語句"><a href="#盡量不要使用條件運算符，而使用條件語句" class="headerlink" title="盡量不要使用條件運算符，而使用條件語句"></a>盡量不要使用條件運算符，而使用條件語句</h3><p>條件語句 <font color="green"> ○ </font></p><pre><code>if (variable != null) {   return variable.getSomething();}return null;</code></pre><p>條件運算符 <font color="red"> X </font></p><pre><code>return variable != null ? variable.getSomething() : null;</code></pre><hr><h3 id="代碼檢查的五道關卡"><a href="#代碼檢查的五道關卡" class="headerlink" title="代碼檢查的五道關卡"></a>代碼檢查的五道關卡</h3><h4 id="第一道關：程式員-好的代碼風格"><a href="#第一道關：程式員-好的代碼風格" class="headerlink" title="第一道關：程式員 (好的代碼風格) "></a>第一道關：程式員 (好的代碼風格) <br></h4><p>代碼縮進 </p><pre><code>    if ((error = doSomething()) != 0)        goto fail;    goto fail;    if ((error= doMore()) != 0)        goto fail;fail:    return error;</code></pre><p>使用大括號 </p><pre><code>    if ((error = doSomething()) != 0) {        goto fail;        goto fail;    }    if ((error= doMore()) != 0) {        goto fail;    }fail:    return error;</code></pre><h4 id="第二道关：编译器"><a href="#第二道关：编译器" class="headerlink" title="第二道关：编译器"></a>第二道关：编译器</h4><p>至今，GCC 社区对于无法访问代码的检查，还没有统一的意见 。然而，GCC 社区并没有完全浪费这个“GoTo Fail”的问题 。为解决类似问题，从 GCC 6 开始，GCC 社区为正确使用缩进提供了一个警告选项（ -Wmisleading-indentation ）。如果代码缩进格式没有正确使用，GCC 就会提供编译时警告。现在，如果我们启用并且注意到了 GCC 编译器的警告，犯类似错误的机会应该会大幅度地降低了。</p><h4 id="第三道关：回归测试-（Regression-Testing）"><a href="#第三道关：回归测试-（Regression-Testing）" class="headerlink" title="第三道关：回归测试 （Regression Testing）"></a>第三道关：回归测试 （Regression Testing）</h4><p>软件测试会尽可能地覆盖 关键逻辑和负面清单 ，以确保关键功能能够正确执行，关键错误能够有效处理。一般情况下，无论是开发人员，还是测试人员，都要写很多测试代码，来测试软件是否达到预期的要求。</p><h4 id="第四道关：代码评审-（Code-Review）"><a href="#第四道关：代码评审-（Code-Review）" class="headerlink" title="第四道关：代码评审 （Code Review）"></a>第四道关：代码评审 （Code Review）</h4><p>代码评审是一个有效的在软件研发过程中抵御人类缺陷的制度 。通过更多的眼睛检查软件代码，被忽视的错误更容易被逮住，更好的设计和实现更容易浮现出来。</p><h4 id="第五道关：代码分析-（Code-Analysis）"><a href="#第五道关：代码分析-（Code-Analysis）" class="headerlink" title="第五道关：代码分析 （Code Analysis）"></a>第五道关：代码分析 （Code Analysis）</h4><p>静态代码分析（Static Code Analysis）是通过对源代码的检查来发现潜在问题的一种软件质量保障方式。有很多静态代码分析工具可以帮助你检查代码缺陷，比如说商业软件 Coverity，以及开源软件 FindBugs。</p><hr><h3 id="代码规范的价值"><a href="#代码规范的价值" class="headerlink" title="代码规范的价值"></a>代码规范的价值</h3><p>规范的代码，可以降低代码出错的几率<br><br><a href="https://github.com/alibaba/p3c" target="_blank" rel="noopener"> 阿里巴巴 Java 开发手册 </a></p><p>05 | 经验总结：如何给你的代码起好名字？</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 代碼精進之路 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Android MVVM (1) 簡介</title>
       <link href="/2019/04/02/Android%20MVVM%20(1)%20%E7%B0%A1%E4%BB%8B/"/>
       <url>/2019/04/02/Android%20MVVM%20(1)%20%E7%B0%A1%E4%BB%8B/</url>
@@ -34,6 +15,25 @@
         <tags>
             
             <tag> MVVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>代碼精進之路-筆記</title>
+      <link href="/2019/04/02/%E4%BB%A3%E7%A2%BC%E7%B2%BE%E9%80%B2%E4%B9%8B%E8%B7%AF/"/>
+      <url>/2019/04/02/%E4%BB%A3%E7%A2%BC%E7%B2%BE%E9%80%B2%E4%B9%8B%E8%B7%AF/</url>
+      
+        <content type="html"><![CDATA[<p>閱讀極客時間-代碼精進之路，將一些重點項目記錄如下</p><h4 id="不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤"><a href="#不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤" class="headerlink" title="不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤"></a>不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤</h4><p>以下是apple 著名的<font color="red"> RedGoToFail </font>漏洞</p><pre><code>    if ((error = doSomething()) != 0)        goto fail;        goto fail;    if ((error= doMore()) != 0)        goto fail;fail:    return error;</code></pre><h2 id="什麼是好的代碼"><a href="#什麼是好的代碼" class="headerlink" title="什麼是好的代碼"></a>什麼是好的代碼</h2><p>“好” 的代碼<br></p><p>容易理解<br><br>有明顯的安全問題<br><br>能夠滿足最關鍵的需求<br><br>有充分的註釋<br><br>使用規範的命名<br><br>經過充分的測試<br></p><p><font color="green"> 最適合當前現實環境的代碼，才是最優秀的代碼 </font><br></p><p>“壞” 的代碼<br><br>難以閱讀的代碼<br><br>浪費大量計算機資源的代碼<br><br>代碼風格混亂的代碼<br><br>複雜的、不直觀的代碼<br><br>有經過適當測試的代碼<br></p><h3 id="盡量不要使用條件運算符，而使用條件語句"><a href="#盡量不要使用條件運算符，而使用條件語句" class="headerlink" title="盡量不要使用條件運算符，而使用條件語句"></a>盡量不要使用條件運算符，而使用條件語句</h3><p>條件語句 <font color="green"> ○ </font></p><pre><code>if (variable != null) {   return variable.getSomething();}return null;</code></pre><p>條件運算符 <font color="red"> X </font></p><pre><code>return variable != null ? variable.getSomething() : null;</code></pre><hr><h3 id="代碼檢查的五道關卡"><a href="#代碼檢查的五道關卡" class="headerlink" title="代碼檢查的五道關卡"></a>代碼檢查的五道關卡</h3><h4 id="第一道關：程式員-好的代碼風格"><a href="#第一道關：程式員-好的代碼風格" class="headerlink" title="第一道關：程式員 (好的代碼風格) "></a>第一道關：程式員 (好的代碼風格) <br></h4><p>代碼縮進 </p><pre><code>    if ((error = doSomething()) != 0)        goto fail;    goto fail;    if ((error= doMore()) != 0)        goto fail;fail:    return error;</code></pre><p>使用大括號 </p><pre><code>    if ((error = doSomething()) != 0) {        goto fail;        goto fail;    }    if ((error= doMore()) != 0) {        goto fail;    }fail:    return error;</code></pre><h4 id="第二道关：编译器"><a href="#第二道关：编译器" class="headerlink" title="第二道关：编译器"></a>第二道关：编译器</h4><p>至今，GCC 社区对于无法访问代码的检查，还没有统一的意见 。然而，GCC 社区并没有完全浪费这个“GoTo Fail”的问题 。为解决类似问题，从 GCC 6 开始，GCC 社区为正确使用缩进提供了一个警告选项（ -Wmisleading-indentation ）。如果代码缩进格式没有正确使用，GCC 就会提供编译时警告。现在，如果我们启用并且注意到了 GCC 编译器的警告，犯类似错误的机会应该会大幅度地降低了。</p><h4 id="第三道关：回归测试-（Regression-Testing）"><a href="#第三道关：回归测试-（Regression-Testing）" class="headerlink" title="第三道关：回归测试 （Regression Testing）"></a>第三道关：回归测试 （Regression Testing）</h4><p>软件测试会尽可能地覆盖 关键逻辑和负面清单 ，以确保关键功能能够正确执行，关键错误能够有效处理。一般情况下，无论是开发人员，还是测试人员，都要写很多测试代码，来测试软件是否达到预期的要求。</p><h4 id="第四道关：代码评审-（Code-Review）"><a href="#第四道关：代码评审-（Code-Review）" class="headerlink" title="第四道关：代码评审 （Code Review）"></a>第四道关：代码评审 （Code Review）</h4><p>代码评审是一个有效的在软件研发过程中抵御人类缺陷的制度 。通过更多的眼睛检查软件代码，被忽视的错误更容易被逮住，更好的设计和实现更容易浮现出来。</p><h4 id="第五道关：代码分析-（Code-Analysis）"><a href="#第五道关：代码分析-（Code-Analysis）" class="headerlink" title="第五道关：代码分析 （Code Analysis）"></a>第五道关：代码分析 （Code Analysis）</h4><p>静态代码分析（Static Code Analysis）是通过对源代码的检查来发现潜在问题的一种软件质量保障方式。有很多静态代码分析工具可以帮助你检查代码缺陷，比如说商业软件 Coverity，以及开源软件 FindBugs。</p><hr><h3 id="代码规范的价值"><a href="#代码规范的价值" class="headerlink" title="代码规范的价值"></a>代码规范的价值</h3><p>规范的代码，可以降低代码出错的几率<br><br><a href="https://github.com/alibaba/p3c" target="_blank" rel="noopener"> 阿里巴巴 Java 开发手册 </a></p><p>05 | 经验总结：如何给你的代码起好名字？</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 代碼精進之路 </tag>
             
         </tags>
       
