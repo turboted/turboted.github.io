@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>代碼精進之路-筆記 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="閱讀極客時間-代碼精進之路，將一些重點項目記錄如下
+不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤以下是apple 著名的 RedGoToFail 漏洞
+1234567    ,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">代碼精進之路-筆記</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">代碼精進之路-筆記</h1>
+        <div class="stuff">
+            <span>四月 02, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/代碼精進之路/">代碼精進之路</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>閱讀極客時間-代碼精進之路，將一些重點項目記錄如下</p>
+<h4 id="不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤"><a href="#不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤" class="headerlink" title="不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤"></a>不要過份認為自己的代碼不會犯錯，就連apple專案師都會犯下低級錯誤</h4><p>以下是apple 著名的<font color="red"> RedGoToFail </font>漏洞</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    if ((error = doSomething()) != 0)</span><br><span class="line">        goto fail;</span><br><span class="line">        goto fail;</span><br><span class="line">    if ((error= doMore()) != 0)</span><br><span class="line">        goto fail;</span><br><span class="line">fail:</span><br><span class="line">    return error;</span><br></pre></td></tr></table></figure>
+<h2 id="什麼是好的代碼"><a href="#什麼是好的代碼" class="headerlink" title="什麼是好的代碼"></a>什麼是好的代碼</h2><p>“好” 的代碼<br></p>
+<p>容易理解<br><br>有明顯的安全問題<br><br>能夠滿足最關鍵的需求<br><br>有充分的註釋<br><br>使用規範的命名<br><br>經過充分的測試<br></p>
+<p><font color="green"> 最適合當前現實環境的代碼，才是最優秀的代碼 </font><br></p>
+<p>“壞” 的代碼<br><br>難以閱讀的代碼<br><br>浪費大量計算機資源的代碼<br><br>代碼風格混亂的代碼<br><br>複雜的、不直觀的代碼<br><br>有經過適當測試的代碼<br></p>
+<h3 id="盡量不要使用條件運算符，而使用條件語句"><a href="#盡量不要使用條件運算符，而使用條件語句" class="headerlink" title="盡量不要使用條件運算符，而使用條件語句"></a>盡量不要使用條件運算符，而使用條件語句</h3><p>條件語句 <font color="green"> ○ </font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (variable != null) &#123;</span><br><span class="line">   return variable.getSomething();</span><br><span class="line">&#125;</span><br><span class="line">return null;</span><br></pre></td></tr></table></figure></p>
+<p>條件運算符 <font color="red"> X </font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return variable != null ? variable.getSomething() : null;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="代碼檢查的五道關卡"><a href="#代碼檢查的五道關卡" class="headerlink" title="代碼檢查的五道關卡"></a>代碼檢查的五道關卡</h3><h4 id="第一道關：程式員-好的代碼風格"><a href="#第一道關：程式員-好的代碼風格" class="headerlink" title="第一道關：程式員 (好的代碼風格) "></a>第一道關：程式員 (好的代碼風格) <br></h4><p>代碼縮進<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    if ((error = doSomething()) != 0)</span><br><span class="line">        goto fail;</span><br><span class="line">    goto fail;</span><br><span class="line">    if ((error= doMore()) != 0)</span><br><span class="line">        goto fail;</span><br><span class="line">fail:</span><br><span class="line">    return error;</span><br></pre></td></tr></table></figure></p>
+<p>使用大括號<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    if ((error = doSomething()) != 0) &#123;</span><br><span class="line">        goto fail;</span><br><span class="line">        goto fail;</span><br><span class="line">    &#125;</span><br><span class="line">    if ((error= doMore()) != 0) &#123;</span><br><span class="line">        goto fail;</span><br><span class="line">    &#125;</span><br><span class="line">fail:</span><br><span class="line">    return error;</span><br></pre></td></tr></table></figure></p>
+<h4 id="第二道关：编译器"><a href="#第二道关：编译器" class="headerlink" title="第二道关：编译器"></a>第二道关：编译器</h4><p>至今，GCC 社区对于无法访问代码的检查，还没有统一的意见 。然而，GCC 社区并没有完全浪费这个“GoTo Fail”的问题 。为解决类似问题，从 GCC 6 开始，GCC 社区为正确使用缩进提供了一个警告选项（ -Wmisleading-indentation ）。如果代码缩进格式没有正确使用，GCC 就会提供编译时警告。现在，如果我们启用并且注意到了 GCC 编译器的警告，犯类似错误的机会应该会大幅度地降低了。</p>
+<h4 id="第三道关：回归测试-（Regression-Testing）"><a href="#第三道关：回归测试-（Regression-Testing）" class="headerlink" title="第三道关：回归测试 （Regression Testing）"></a>第三道关：回归测试 （Regression Testing）</h4><p>软件测试会尽可能地覆盖 关键逻辑和负面清单 ，以确保关键功能能够正确执行，关键错误能够有效处理。一般情况下，无论是开发人员，还是测试人员，都要写很多测试代码，来测试软件是否达到预期的要求。</p>
+<h4 id="第四道关：代码评审-（Code-Review）"><a href="#第四道关：代码评审-（Code-Review）" class="headerlink" title="第四道关：代码评审 （Code Review）"></a>第四道关：代码评审 （Code Review）</h4><p>代码评审是一个有效的在软件研发过程中抵御人类缺陷的制度 。通过更多的眼睛检查软件代码，被忽视的错误更容易被逮住，更好的设计和实现更容易浮现出来。</p>
+<h4 id="第五道关：代码分析-（Code-Analysis）"><a href="#第五道关：代码分析-（Code-Analysis）" class="headerlink" title="第五道关：代码分析 （Code Analysis）"></a>第五道关：代码分析 （Code Analysis）</h4><p>静态代码分析（Static Code Analysis）是通过对源代码的检查来发现潜在问题的一种软件质量保障方式。有很多静态代码分析工具可以帮助你检查代码缺陷，比如说商业软件 Coverity，以及开源软件 FindBugs。</p>
+<hr>
+<h3 id="代码规范的价值"><a href="#代码规范的价值" class="headerlink" title="代码规范的价值"></a>代码规范的价值</h3><p>规范的代码，可以降低代码出错的几率<br><br><a href="https://github.com/alibaba/p3c" target="_blank" rel="noopener"> 阿里巴巴 Java 开发手册 </a></p>
+<p>05 | 经验总结：如何给你的代码起好名字？</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
