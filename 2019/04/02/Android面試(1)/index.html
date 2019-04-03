@@ -406,7 +406,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>參考資料<br><br><a href="https://www.jianshu.com/p/718aa3c1a70b" target="_blank" rel="noopener">https://www.jianshu.com/p/718aa3c1a70b</a><br><br><a href="https://www.jianshu.com/p/602b1ec4ca7a" target="_blank" rel="noopener">https://www.jianshu.com/p/602b1ec4ca7a</a><br><br><a href="https://developer.android.com/guide/components/activities?hl=zh-tw" target="_blank" rel="noopener">https://developer.android.com/guide/components/activities?hl=zh-tw</a><br><br><a href="https://developer.android.com/guide/components/activities/activity-lifecycle" target="_blank" rel="noopener">https://developer.android.com/guide/components/activities/activity-lifecycle</a></p>
-<h1 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h1><h2 id="一般生命周期"><a href="#一般生命周期" class="headerlink" title="一般生命周期"></a>一般生命周期</h2><p><img src="https://developer.android.com/images/activity_lifecycle.png?hl=zh-tw" alt="lifecycle"></p>
+<h1 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h1><h2 id="一般生命周期"><a href="#一般生命周期" class="headerlink" title="一般生命周期"></a>一般生命周期</h2><p><img src="https://images0.cnblogs.com/blog/720086/201502/081829527828735.png" alt="lifecycle"></p>
 <h3 id="onCreate"><a href="#onCreate" class="headerlink" title="onCreate():"></a>onCreate():</h3><p>状态：Activit 正在创建<br><br>任务：做初始化工作，如setContentView界面资源、初始化数据<br><br>注意：此方法的传参Bundle为该Activity上次被异常情况销毁时保存的状态信息。<br><br>補充說明:Activity若異常銷毀，狀態可保存在onSaveInstanceState<br><a href="https://blog.csdn.net/cheneasternsun/article/details/80721790" target="_blank" rel="noopener">https://blog.csdn.net/cheneasternsun/article/details/80721790</a></p>
 <h3 id="onStart"><a href="#onStart" class="headerlink" title="onStart():"></a>onStart():</h3><p>状态：Activity 正在启动，这时Activity 可见但不在前台，无法和用户交互。</p>
 <h3 id="onResume"><a href="#onResume" class="headerlink" title="onResume():"></a>onResume():</h3><p>状态：Activity 获得焦点，此时Activity 可见且在前台并开始活动。</p>
@@ -414,10 +414,8 @@
 <h3 id="onStop"><a href="#onStop" class="headerlink" title="onStop():"></a>onStop():</h3><p>状态：Activity 即将停止<br><br>任务：可做稍微重量级回收工作，如取消网络连接、注销广播接收器等。<br><br>注意：新Activity是透明主题时，旧Activity都不会走onStop。</p>
 <h3 id="onDestroy"><a href="#onDestroy" class="headerlink" title="onDestroy():"></a>onDestroy():</h3><p>状态：Activity 即将销毁<br><br>任务：做回收工作、资源释放。</p>
 <h3 id="onRestart"><a href="#onRestart" class="headerlink" title="onRestart():"></a>onRestart():</h3><p>状态：Activity 重新启动，Activity由后台切换到前台，由不可见到可见。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5494434-6363e6d9761980a3?imageMogr2/auto-orient/strip%7CimageView2/2/w/420" alt="lifecycle"></p>
 <p>a.完整生命周期：<br>onCreate()和onDestroy()之间所经历的。<br><br>b.可见生命周期：<br>onStart()和onStop()之间所经历的。<br>活动对于用户是可见的，但不可交互。<br><br>c.前台生命周期：<br>onResume()和onPause()之间所经历的。<br>活动可见，且可交互。</p>
-<h2 id="異常生命周期"><a href="#異常生命周期" class="headerlink" title="異常生命周期"></a>異常生命周期</h2><p><img src="https://upload-images.jianshu.io/upload_images/295205-66f92a73eebf74f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/761" alt="onRestoreInstanceState"></p>
-<h3 id="onSaveInstanceState和onRestoreInstanceState"><a href="#onSaveInstanceState和onRestoreInstanceState" class="headerlink" title="onSaveInstanceState和onRestoreInstanceState"></a>onSaveInstanceState和onRestoreInstanceState</h3><ul>
+<h2 id="異常生命周期"><a href="#異常生命周期" class="headerlink" title="異常生命周期"></a>異常生命周期</h2><h3 id="onSaveInstanceState和onRestoreInstanceState"><a href="#onSaveInstanceState和onRestoreInstanceState" class="headerlink" title="onSaveInstanceState和onRestoreInstanceState"></a>onSaveInstanceState和onRestoreInstanceState</h3><ul>
 <li>出现时机：异常 情况下Activity 重建，非用户主动去销毁</li>
 <li>系统异常终止时，调用onSavaInstanceState来保存状态。该方法调用在onStop之前，但和onPause没有时序关系。</li>
 <li>onSaveInstanceState用於对临时性状态的保存(系统缓存)，而onPause用於对数据的持久化保存(persistent data)。</li>
