@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>極簡數據結構(1)-語言基礎</title>
+      <link href="/2019/04/02/%E6%A5%B5%E7%B0%A1%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B(1)-%E8%AA%9E%E8%A8%80%E5%9F%BA%E7%A4%8E/"/>
+      <url>/2019/04/02/%E6%A5%B5%E7%B0%A1%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B(1)-%E8%AA%9E%E8%A8%80%E5%9F%BA%E7%A4%8E/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-輸入輸出"><a href="#1-輸入輸出" class="headerlink" title="1.輸入輸出"></a>1.輸入輸出</h2><pre><code>import java.util.Scanner;public class test {    public static void main(String[] args) {        Scanner input = new Scanner(System.in);         System.out.print(&quot;Enter an integer A: &quot;); //output        int numberA = input.nextInt();    //input        System.out.print(&quot;Enter an integer B: &quot;);        int numberB = input.nextInt();        System.out.println(&quot;A+B = &quot; + (numberA+numberB));    }}</code></pre><h2 id="2-String簡單使用"><a href="#2-String簡單使用" class="headerlink" title="2.String簡單使用"></a>2.String簡單使用</h2><pre><code>import java.util.Scanner;public class test {    public static void main(String[] args) {        Scanner input = new Scanner(System.in);        System.out.print(&quot;Enter an String A: &quot;);        String stringA = input.nextLine();        System.out.print(&quot;Enter an String B: &quot;);        String stringB = input.nextLine();        System.out.println(&quot;String A size = &quot; + stringA.length()); //string a length        System.out.println(&quot;String B size = &quot; + stringB.length());        System.out.println(&quot;String A + String B = &quot; + (stringA+stringB)); // string a + string b    }}</code></pre><h2 id="3-array-amp-vector"><a href="#3-array-amp-vector" class="headerlink" title="3.array &amp; vector"></a>3.array &amp; vector</h2><pre><code>import java.util.*;public class test {    public static void main(String[] args) {            final int arraySize = 10; //const            final int vectorSize = 5; //const            int[] array = new int[arraySize]; //create array            Vector v = new Vector(vectorSize); //create vector            for (int i = 0; i &lt; array.length ; i++) //array assign value                array[i] = i;            for (int i = 0; i &lt; array.length ; i++)                System.out.println(&quot;array[&quot;+i+&quot;]:&quot;+ array[i]);//get array and print            System.out.println(&quot;array:&quot;+Arrays.toString(array));//array to string and print            for (int i = 0; i &lt; v.capacity() ; i++) //vector assign value                v.add(i,i);            for (int i = 0; i &lt; v.capacity() ; i++)                //v.set(i, i); //沒有預設值即為null，null不能進行 set                System.out.println(&quot;Vector[&quot;+i+&quot;]:&quot;+ v.elementAt(i));//get vector element and print            System.out.println(&quot;Vector:&quot;+ v.toString());//print vector        }}</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 數據結構 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android面試(1)</title>
       <link href="/2019/04/02/Android%E9%9D%A2%E8%A9%A6(1)/"/>
       <url>/2019/04/02/Android%E9%9D%A2%E8%A9%A6(1)/</url>
