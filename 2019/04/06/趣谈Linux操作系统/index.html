@@ -413,11 +413,11 @@
 <h2 id="3-了解-Linux-内核机制，反复研习重点突破"><a href="#3-了解-Linux-内核机制，反复研习重点突破" class="headerlink" title="3.了解 Linux 内核机制，反复研习重点突破"></a>3.了解 Linux 内核机制，反复研习重点突破</h2><p>《 深入理解 LINUX 内核 》<br>《 庖丁解牛Linux内核分析》</p>
 <h2 id="4-阅读-Linux-内核代码，聚焦核心逻辑和场景"><a href="#4-阅读-Linux-内核代码，聚焦核心逻辑和场景" class="headerlink" title="4.阅读 Linux 内核代码，聚焦核心逻辑和场景"></a>4.阅读 Linux 内核代码，聚焦核心逻辑和场景</h2><p>《 LINUX 内核源代码情景分析 》</p>
 <h2 id="5-实验定制化-Linux-组件，已经没人能阻挡你成为内核开发工程师了"><a href="#5-实验定制化-Linux-组件，已经没人能阻挡你成为内核开发工程师了" class="headerlink" title="5.实验定制化 Linux 组件，已经没人能阻挡你成为内核开发工程师了"></a>5.实验定制化 Linux 组件，已经没人能阻挡你成为内核开发工程师了</h2><p>从只看内核代码，到上手修改内核代码<br>制化自己的模块。例如，你可以自己实现一个设备驱动程序，实现一个自己的系统调用，或者实现一个自己的文件系统等</p>
-<h2 id="6-最后一坡：面向真实场景的开发，实践没有终点"><a href="#6-最后一坡：面向真实场景的开发，实践没有终点" class="headerlink" title="6.最后一坡：面向真实场景的开发，实践没有终点"></a>6.最后一坡：面向真实场景的开发，实践没有终点</h2><p><img src="趣谈Linux操作系统-爬坡路線圖.png" alt="系統路線圖"></p>
+<h2 id="6-最后一坡：面向真实场景的开发，实践没有终点"><a href="#6-最后一坡：面向真实场景的开发，实践没有终点" class="headerlink" title="6.最后一坡：面向真实场景的开发，实践没有终点"></a>6.最后一坡：面向真实场景的开发，实践没有终点</h2><p><img src="/images/趣谈Linux操作系统-爬坡路線圖.png" alt="系統路線圖"></p>
 <hr>
 <h1 id="你可以把Linux内核当成一家软件外包公司的老板"><a href="#你可以把Linux内核当成一家软件外包公司的老板" class="headerlink" title="你可以把Linux内核当成一家软件外包公司的老板"></a>你可以把Linux内核当成一家软件外包公司的老板</h1><p>User -&gt; Keyboard &amp; Mouse(Input Device) -&gt; Input Driver -&gt; Interrupt -&gt; Interrupt Service Routines(ISR) -&gt; Binary Program -&gt; File Management Subsystem -&gt; System Call Subsystem -&gt; Resource Allocation -&gt; Process Management Subsystem -&gt; Memory Management Subsystem -&gt; Execute Program(Process) -&gt; Output Driver -&gt; Output Device(Display)</p>
 <p>User -&gt; 客戶需求 -&gt; 客戶對接員 -&gt; 停止原有服務了解客戶需求 -&gt; 處理需求的方法 -&gt; 需求立項 -&gt; 项目计划书 -&gt; 保存文件檔案庫 -&gt; 辦事大廳(資源分配) -&gt; 成立項目組(開發人員、項目經理、項目管理流程) -&gt; 項目管理系統 -&gt; 會議室管理系統 -&gt; 執行项目计划 -&gt;  交付人員 -&gt; 展示需求</p>
-<p><img src="趣谈Linux操作系统-系統項目對比圖.png" alt="系統項目對比圖"><br><img src="趣谈Linux操作系统-內核結構圖.png" alt="內核結構圖"></p>
+<p><img src="/images/趣谈Linux操作系统-系統項目對比圖.png" alt="系統項目對比圖"><br><img src="/images/趣谈Linux操作系统-內核結構圖.png" alt="內核結構圖"></p>
 <hr>
 <h1 id="每家公司都有自己的黑话"><a href="#每家公司都有自己的黑话" class="headerlink" title="每家公司都有自己的黑话"></a>每家公司都有自己的黑话</h1><h2 id="常用的-command-line-指令"><a href="#常用的-command-line-指令" class="headerlink" title="常用的 command line  指令"></a>常用的 command line  指令</h2><h3 id="用戶與密碼"><a href="#用戶與密碼" class="headerlink" title="用戶與密碼"></a>用戶與密碼</h3><p>passwd 修改密碼<br><br>useradd 創建用戶<br><br>useradd -g 群組設定<br></p>
 <p>mac 沒有 useradd 指令<br><br>1.System Preferences -&gt; Users &amp; Groups 設定<br><br>2.使用 dscl command<br></p>
