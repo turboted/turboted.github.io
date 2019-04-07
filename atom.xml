@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-03T07:01:34.943Z</updated>
+  <updated>2019-04-07T14:13:27.883Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>趣谈Linux操作系统 筆記</title>
+    <link href="http://yoursite.com/2019/04/06/%E8%B6%A3%E8%B0%88Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://yoursite.com/2019/04/06/趣谈Linux操作系统/</id>
+    <published>2019-04-06T12:26:01.000Z</published>
+    <updated>2019-04-07T14:13:27.883Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;此心得筆記為閱讀極客時間-趣谈Linux操作系统&lt;/p&gt;
+&lt;h1 id=&quot;爬过这六个陡坡，你就能对Linux了如指掌&quot;&gt;&lt;a href=&quot;#爬过这六个陡坡，你就能对Linux了如指掌&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Android面試(1)</title>
@@ -45,7 +70,7 @@
     <link href="http://yoursite.com/2019/04/02/%E6%A5%B5%E7%B0%A1%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B(1)-%E8%AA%9E%E8%A8%80%E5%9F%BA%E7%A4%8E/"/>
     <id>http://yoursite.com/2019/04/02/極簡數據結構(1)-語言基礎/</id>
     <published>2019-04-02T12:26:01.000Z</published>
-    <updated>2019-04-04T15:06:01.831Z</updated>
+    <updated>2019-04-06T15:07:05.011Z</updated>
     
     <summary type="html">
     
