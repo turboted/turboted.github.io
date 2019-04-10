@@ -4,10 +4,17 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="趣談Linux操作系統 筆記, Turboted">
-    <meta name="description" content="此心得筆記為閱讀極客時間-趣談Linux操作系統
-02 學習路徑：爬過這六個陡坡，你就能對Linux了如指掌1.拋棄舊的思維習慣，熟練使用 Linux 命令行《 鳥哥的 Linux 私房菜 》《 Linux 系統管理技術手冊 》
-2.通過系">
+    <meta name="keywords" content="10倍速程序員工作法 筆記, Turboted">
+    <meta name="description" content="開源服務器框架 Moco
+
+測試驅動開發（Test Driven Development）
+
+盡量任務分解，分解的愈小表示愈了解任務
+寫測試
+寫代碼
+進行重構
+我有一個測試，怎麼寫代碼能通過它
+我的代碼怎麼寫才是能測試的，我們要編寫具有可測">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +22,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>趣談Linux操作系統 筆記 | Turboted</title>
+    <title>10倍速程序員工作法 筆記 | Turboted</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -259,13 +266,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        趣談Linux操作系統 筆記
+                        10倍速程序員工作法 筆記
                     </div>
                 </div>
             </div>
@@ -376,8 +383,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/" target="_blank">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/program、speed/" target="_blank">
+                                <span class="chip bg-color">program、speed</span>
                             </a>
                         
                     </div>
@@ -391,7 +398,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-06
+                    2019-04-10
                 </div>
 
                 
@@ -407,71 +414,52 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>此心得筆記為閱讀極客時間-趣談Linux操作系統</p>
-<h1 id="02-學習路徑：爬過這六個陡坡，你就能對Linux了如指掌"><a href="#02-學習路徑：爬過這六個陡坡，你就能對Linux了如指掌" class="headerlink" title="02 學習路徑：爬過這六個陡坡，你就能對Linux了如指掌"></a>02 學習路徑：爬過這六個陡坡，你就能對Linux了如指掌</h1><h3 id="1-拋棄舊的思維習慣，熟練使用-Linux-命令行"><a href="#1-拋棄舊的思維習慣，熟練使用-Linux-命令行" class="headerlink" title="1.拋棄舊的思維習慣，熟練使用 Linux 命令行"></a>1.拋棄舊的思維習慣，熟練使用 Linux 命令行</h3><p>《 鳥哥的 Linux 私房菜 》《 Linux 系統管理技術手冊 》</p>
-<h3 id="2-通過系統調用或glibc，學會自己進行程式設計"><a href="#2-通過系統調用或glibc，學會自己進行程式設計" class="headerlink" title="2.通過系統調用或glibc，學會自己進行程式設計"></a>2.通過系統調用或glibc，學會自己進行程式設計</h3><p>《Unix/Linux編程實踐教程》 -&gt;《UNIX 環境高級編程》</p>
-<h3 id="3-了解-Linux-內核機制，反複研習重點突破"><a href="#3-了解-Linux-內核機制，反複研習重點突破" class="headerlink" title="3.了解 Linux 內核機制，反複研習重點突破"></a>3.了解 Linux 內核機制，反複研習重點突破</h3><p>《 深入理解 LINUX 內核 》<br>《 庖丁解牛Linux內核分析》</p>
-<h3 id="4-閱讀-Linux-內核代碼，聚焦核心邏輯和場景"><a href="#4-閱讀-Linux-內核代碼，聚焦核心邏輯和場景" class="headerlink" title="4.閱讀 Linux 內核代碼，聚焦核心邏輯和場景"></a>4.閱讀 Linux 內核代碼，聚焦核心邏輯和場景</h3><p>《 LINUX 內核源代碼情景分析 》</p>
-<h3 id="5-實驗定製化-Linux-組件，無人能阻擋你成為內核開發工程師"><a href="#5-實驗定製化-Linux-組件，無人能阻擋你成為內核開發工程師" class="headerlink" title="5.實驗定製化 Linux 組件，無人能阻擋你成為內核開發工程師"></a>5.實驗定製化 Linux 組件，無人能阻擋你成為內核開發工程師</h3><p>從看內核代碼，到上手修改內核代碼<br>客製化自己的模塊。例如，你可以自己實現一個設備驅動程式，實現一個自己的系統調用，或者實現一個自己的文件系統等</p>
-<h3 id="6-最後一坡：面向真實場景的開發，實踐沒有終點"><a href="#6-最後一坡：面向真實場景的開發，實踐沒有終點" class="headerlink" title="6.最後一坡：面向真實場景的開發，實踐沒有終點"></a>6.最後一坡：面向真實場景的開發，實踐沒有終點</h3><p><img src="/images/趣談Linux操作系統-爬坡路線圖.png" alt="系統路線圖"></p>
-<hr>
-<h1 id="03-你可以把Linux內核當成一家軟體外包公司的老闆"><a href="#03-你可以把Linux內核當成一家軟體外包公司的老闆" class="headerlink" title="03 你可以把Linux內核當成一家軟體外包公司的老闆"></a>03 你可以把Linux內核當成一家軟體外包公司的老闆</h1><p>User -&gt; Keyboard &amp; Mouse(Input Device) -&gt; Input Driver -&gt; Interrupt -&gt; Interrupt Service Routines(ISR) -&gt; Binary Program -&gt; File Management Subsystem -&gt; System Call Subsystem -&gt; Resource Allocation -&gt; Process Management Subsystem -&gt; Memory Management Subsystem -&gt; Execute Program(Process) -&gt; Output Driver -&gt; Output Device(Display)</p>
-<p>User -&gt; 客戶需求 -&gt; 客戶對接員 -&gt; 停止原有服務了解客戶需求 -&gt; 處理需求的方法 -&gt; 需求立項 -&gt; 項目計畫書 -&gt; 保存文件檔案庫 -&gt; 辦事大廳(資源分配) -&gt; 成立項目組(開發人員、項目經理、項目管理流程) -&gt; 項目管理系統 -&gt; 會議室管理系統 -&gt; 執行項目計劃 -&gt;  交付人員 -&gt; 展示需求</p>
-<p><img src="/images/趣談Linux操作系統-系統項目對比圖.png" alt="系統項目對比圖"></p>
-<p><img src="/images/趣談Linux操作系統-內核結構圖.png" alt="內核結構圖"></p>
-<hr>
-<h1 id="04-快速上手幾個Linux命令：每家公司都有自己的黑話"><a href="#04-快速上手幾個Linux命令：每家公司都有自己的黑話" class="headerlink" title="04 快速上手幾個Linux命令：每家公司都有自己的黑話"></a>04 快速上手幾個Linux命令：每家公司都有自己的黑話</h1><h2 id="常用的-command-line-指令"><a href="#常用的-command-line-指令" class="headerlink" title="常用的 command line  指令"></a>常用的 command line  指令</h2><h3 id="用戶與密碼"><a href="#用戶與密碼" class="headerlink" title="用戶與密碼"></a>用戶與密碼</h3><p>passwd 修改密碼<br><br>useradd 創建用戶<br><br>useradd -g 群組設定<br></p>
-<p>mac 沒有 useradd 指令<br><br>1.System Preferences -&gt; Users &amp; Groups 設定<br><br>2.使用 dscl command<br></p>
-<p>顯示所有 user 對應的 group</p>
-<pre><code>$ sudo dscl . -list /groups GroupMembership 
-</code></pre><p>添加 user 到 group</p>
-<pre><code>$ sudo dscl . -append /Groups/groupname GroupMembership username
-</code></pre><p>從 group 中刪除 user</p>
-<pre><code>$ sudo dscl . -delete /Groups/groupname GroupMembership username
-</code></pre><p>用戶名:密碼:用戶ID(UID):群組ID(GID):家目錄:Shell path</p>
-<pre><code># cat /etc/passwd
-root:x:0:0:root:/root:/bin/bash
-......
-cliu8:x:1000:1000::/home/cliu8:/bin/bash
-</code></pre><p>群組名稱:群組密碼:GID</p>
-<pre><code># cat /etc/group
-root:x:0:
-......
-cliu8:x:1000:
-</code></pre><p><a href="http://linux.vbird.org/linux_basic/0410accountmanager.php" target="_blank" rel="noopener">鳥哥Linux 帳號管理與 ACL 權限設定</a></p>
-<h3 id="瀏覽文件"><a href="#瀏覽文件" class="headerlink" title="瀏覽文件"></a>瀏覽文件</h3><p>用列表方式列出文件</p>
+                <p><a href="http://github.com/dreamhead/moco" target="_blank" rel="noopener">開源服務器框架 Moco</a></p>
+<p><img src="/images/10x程式員工作法-叠代0的準備.png" alt="叠代0的準備"></p>
+<h3 id="測試驅動開發（Test-Driven-Development）"><a href="#測試驅動開發（Test-Driven-Development）" class="headerlink" title="測試驅動開發（Test Driven Development）"></a>測試驅動開發（Test Driven Development）</h3><p><img src="/images/10x程序員工作法-TDD.png" alt="TDD"></p>
 <ul>
-<li>d:目錄 -:文件</li>
-<li>rwx:所屬用戶可讀可寫可執行 </li>
-<li>r-x:所屬群組可讀不可寫可執行 </li>
-<li>r-x:其它用戶可讀不可寫可執行</li>
-<li>root: 所屬用戶</li>
-<li>root:所屬群組 </li>
-<li>4096:文件大小 </li>
-<li>Oct20:文件修改日期 </li>
-<li>apt:文件名稱<pre><code># ls -l
-drwxr-xr-x 6 root root    4096 Oct 20  2017 apt
--rw-r--r-- 1 root root     211 Oct 20  2017 hosts
-</code></pre></li>
+<li>盡量任務分解，分解的愈小表示愈了解任務</li>
+<li>寫測試</li>
+<li>寫代碼</li>
+<li>進行重構</li>
+<li>我有一個測試，怎麼寫代碼能通過它</li>
+<li>我的代碼怎麼寫才是能測試的，我們要編寫具有可測試性的代碼</li>
 </ul>
-<p><a href="http://linux.vbird.org/linux_basic/0220filemanager.php" target="_blank" rel="noopener">鳥哥Linux 檔案與目錄管理</a></p>
-<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p>CentOS 下面是 yum，Ubuntu 下面是 apt-get，mac 使用 brew</p>
-<p><a href="https://brew.sh/index_zh-tw" target="_blank" rel="noopener">Homebrew</a></p>
-<pre><code>CentOS 下面使用 rpm -i jdk-XXX_linux-x64_bin.rpm
-Ubuntu 下面使用 dpkg -i jdk-XXX_linux-x64_bin.deb
-</code></pre><h3 id="環境path設定"><a href="#環境path設定" class="headerlink" title="環境path設定"></a>環境path設定</h3><pre><code>linux為 ./.bashrc
-mac為 ./.bash_profile
-</code></pre><h3 id="vim-編輯器"><a href="#vim-編輯器" class="headerlink" title="vim 編輯器"></a>vim 編輯器</h3><p>i鍵 進入編輯模式<br><br>esc鍵 退出編輯模式<br><br>:wq write &amp; quit<br><br><a href="http://linux.vbird.org/linux_basic/0310vi.php#vi_vim" target="_blank" rel="noopener">鳥哥 vim</a></p>
-<p>###後台運行程序</p>
-<pre><code>創建
-nohup command &gt;out.file 2&gt;&amp;1 &amp;
-刪除
-ps -ef | grep &quot;your_process&quot; | awk &#39;{print $2}&#39; | xargs kill 
-</code></pre><p>这里面，“1”表示文件描述符 1，表示标准输出，“2”表示文件描述符 2，意思是标准错误输出，“2&gt;&amp;1”表示标准输出和错误输出合并了。合并到哪里去呢？到 out.file 里。</p>
-<p><a href="https://livc.io/blog/172" target="_blank" rel="noopener">Linux中的nohup与2&gt;&amp;1 &amp;</a></p>
-<h3 id="開關機"><a href="#開關機" class="headerlink" title="開關機"></a>開關機</h3><pre><code>shutdown -h now 现在就关机
-reboot 就是重启。
-</code></pre>
+<h3 id="可維護的代碼"><a href="#可維護的代碼" class="headerlink" title="可維護的代碼"></a>可維護的代碼</h3><p><img src="/images/10x程序員工作法-可維護的代碼.png" alt="可維護的代碼"></p>
+<ul>
+<li>第一步:可運行代碼</li>
+<li>第二步:遵循編碼規範</li>
+<li>第三步:人可理解的代碼</li>
+<li>第四步:業務語言命名的代碼</li>
+</ul>
+<p>參考書目:<a href="https://book.douban.com/subject/4199741/" target="_blank" rel="noopener">Robert Martin 的《代码整洁之道》Clean Code</a></p>
+<h3 id="技術雷達"><a href="#技術雷達" class="headerlink" title="技術雷達"></a>技術雷達</h3><p><img src="/images/10x程序員工作法-雷達圖.png" alt="技術雷達"></p>
+<ul>
+<li>象限:分別為技術、平台、工具、語言框架</li>
+<li>圓環:由內到外分別為 採用、試驗、評估、暫緩</li>
+</ul>
+<p><a href="https://www.thoughtworks.com/cn/radar/byor" target="_blank" rel="noopener">技術雷達</a>:每年要審視一下選用的技術是否需要更新</p>
+<p><a href="https://github.com/thoughtworks/build-your-own-radar" target="_blank" rel="noopener">構建雷達的開源庫</a>:創建自己團隊的雷達</p>
+<h3 id="持續集成"><a href="#持續集成" class="headerlink" title="持續集成"></a>持續集成</h3><p><img src="/images/10x程序員工作法-持續集成流程圖.png" alt="持續集成流程"></p>
+<p><a href="https://jenkins.io" target="_blank" rel="noopener">CI 服務器 Jenkins</a></p>
+<p><a href="https://github.com/codeforamerica/projectmonitor" target="_blank" rel="noopener">CI 監視器 projectmonitor</a></p>
+<h3 id="運維知識體系"><a href="#運維知識體系" class="headerlink" title="運維知識體系"></a>運維知識體系</h3><ul>
+<li>利用知識體系的建立</li>
+<li>避免零散的知識學習</li>
+<li>有效的貫穿體系</li>
+<li>提高學習效率</li>
+<li><img src="/images/10x程序員工作法-運維知識體系.png" alt="運維知識體系"></li>
+</ul>
+<p><a href="https://chaifeng.com/devops-tech-stack/" target="_blank" rel="noopener">DevOps 技术栈</a></p>
+<h3 id="SOLID-原则"><a href="#SOLID-原则" class="headerlink" title="SOLID 原则"></a>SOLID 原则</h3><p><a href="http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod" target="_blank" rel="noopener">SOLID</a></p>
+<ul>
+<li>单一职责原则（Single responsibility principle，SRP）</li>
+<li>开放封闭原则（Open–closed principle，OCP）</li>
+<li>Liskov 替换原则（Liskov substitution principle，LSP）</li>
+<li>接口隔离原则（Interface segregation principle，ISP）</li>
+<li>依赖倒置原则（Dependency inversion principle，DIP）</li>
+</ul>
+
             </div>
             <hr>
 
@@ -618,7 +606,7 @@ reboot 就是重启。
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">Turboted</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/06/趣谈Linux操作系统/" class="b-link-green">趣談Linux操作系統 筆記</a>
+                    <a href="/2019/04/10/10x程序員工作法/" class="b-link-green">10倍速程序員工作法 筆記</a>
                 </p>
             </div>
         </div>
@@ -641,7 +629,8 @@ reboot 就是重启。
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/04/10/10x程序員工作法/">
                     <div class="card-image">
@@ -664,9 +653,9 @@ reboot 就是重启。
 我有一個測試，怎麼寫代碼能通過它
 我的代碼怎麼寫才是能測試的，我們要編寫具有可測</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -675,6 +664,7 @@ reboot 就是重启。
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -693,20 +683,22 @@ reboot 就是重启。
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/02/Android面試(1)/">
+                <a href="/2019/04/06/趣谈Linux操作系统/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Android面試(1)">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="趣談Linux操作系統 筆記">
                         
-                        <span class="card-title">Android面試(1)</span>
+                        <span class="card-title">趣談Linux操作系統 筆記</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">參考資料https://www.jianshu.com/p/718aa3c1a70bhttps://www.jianshu.com/p/602b1ec4ca7ahttps://developer.android.com/guide/comp</div>
+                    <div class="summary block-with-text">此心得筆記為閱讀極客時間-趣談Linux操作系統
+02 學習路徑：爬過這六個陡坡，你就能對Linux了如指掌1.拋棄舊的思維習慣，熟練使用 Linux 命令行《 鳥哥的 Linux 私房菜 》《 Linux 系統管理技術手冊 》
+2.通過系</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-06
                             </span>
                         <span class="publish-author">
                             
@@ -719,8 +711,8 @@ reboot 就是重启。
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Android、面試/" target="_blank">
-                        <span class="chip bg-color">Android、面試</span>
+                    <a href="/tags/linux/" target="_blank">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
