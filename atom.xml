@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-10T14:29:44.638Z</updated>
+  <updated>2019-04-10T14:54:07.583Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/04/10/10x%E7%A8%8B%E5%BA%8F%E5%93%A1%E5%B7%A5%E4%BD%9C%E6%B3%95/"/>
     <id>http://yoursite.com/2019/04/10/10x程序員工作法/</id>
     <published>2019-04-10T14:15:01.000Z</published>
-    <updated>2019-04-10T14:29:44.638Z</updated>
+    <updated>2019-04-10T14:54:07.583Z</updated>
     
     <summary type="html">
     
@@ -30,7 +30,7 @@
         
         
           &lt;p&gt;&lt;a href=&quot;http://github.com/dreamhead/moco&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;開源服務器框架 Moco&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img
+&lt;h3 id=&quot;迭代0的準備&quot;&gt;&lt;a href=&quot;#迭代0的準備&quot;
         
       
     
