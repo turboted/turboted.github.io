@@ -459,18 +459,76 @@
 <li>接口隔离原则（Interface segregation principle，ISP）</li>
 <li>依赖倒置原则（Dependency inversion principle，DIP）</li>
 </ul>
-<h3 id="項目自動化"><a href="#項目自動化" class="headerlink" title="項目自動化"></a>項目自動化</h3><p><code>`</code>java<br>//取得測試代碼<br>git clone  <a href="https://github.com/dreamhead/geektime-zero.git" target="_blank" rel="noopener">https://github.com/dreamhead/geektime-zero.git</a><br>cd geektime-zero</p>
-<p>//使用gradlew 指令生成 idea的IDE工程的優點<br>//1.使用gradlew 產生的工程會鎖定gradle版本，避免造成版本差異<br>//2.直接使用ide 打開工，不同人的ide 版本也會影響工程的內容<br>./gradlew idea</p>
-<p>//在settings.gradle  中設定 ide 配置<br>//此项目采用 Lombok 簡化代碼，故請在idea中安装 Lombok 插件<br>//並在 “Build, Execution, Deployment”-&gt; “Compiler” -&gt; “Annotation Processors“”中，选中 Enable annotation processing）<br>apply plugin: ‘idea’</p>
-<p>//檢查配置，設置checkstyle 與是否檢查的分類<br>apply plugin: ‘checkstyle’<br>style.excludePackages = [<br>]<br>style.excludeClasses = [<br>]</p>
-<p>//測試覆蓋率設置與產生報表<br>apply plugin: ‘jacoco’<br>coverage.excludePackages = [<br>]<br>coverage.excludeClasses = [<br>]</p>
-<p>//資料庫遷移<br>//使用 flyway 工具<br>plugins {<br>    id “org.flywaydb.flyway” version “5.2.4”<br>}</p>
-<p>//資料庫連線配置<br>flyway {<br>    url = ‘jdbc:mysql://localhost:3306/zero_test?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false’<br>    user = ‘zero’<br>    password = ‘geektime’<br>    locations = [“filesystem:$rootDir/gradle/config/migration”]<br>}</p>
-<p>//資料庫修改範例<br>CREATE TABLE zero_users(<br>    id bigint(20) not null AUTO_INCREMENT,<br>    name varchar(100) not null unique,<br>    password varchar(100) not null,<br>    primary key(id)<br>);</p>
-<p>//執行資料庫的遷移<br>./gradlew flywayMigrate</p>
-<p>//構建與執行應用(1)<br>//於zero-bootstrap/build/libs 下生成一个可执行 JAR 包<br>//build前會依賴check<br>./gradlew build<br>java -jar zero-bootstrap/build/libs/zero-bootstrap-*-boot.jar</p>
-<p>//構建與執行應用(2)<br>//可使用gradlew 指令直接執行構建與執行<br>./gradlew bootRun</p>
-<p>//於瀏覽器訪問<br>{<br>    “username”: “foo”,<br>    “password”: “bar”<br>}<br><a href="http://localhost:8080/users" target="_blank" rel="noopener">http://localhost:8080/users</a></p>
+<h3 id="項目自動化"><a href="#項目自動化" class="headerlink" title="項目自動化"></a>項目自動化</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//取得測試代碼</span>
+git clone  https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>dreamhead<span class="token operator">/</span>geektime<span class="token operator">-</span>zero<span class="token punctuation">.</span>git
+cd geektime<span class="token operator">-</span>zero
+
+<span class="token comment" spellcheck="true">//使用gradlew 指令生成 idea的IDE工程的優點</span>
+<span class="token comment" spellcheck="true">//1.使用gradlew 產生的工程會鎖定gradle版本，避免造成版本差異</span>
+<span class="token comment" spellcheck="true">//2.直接使用ide 打開工，不同人的ide 版本也會影響工程的內容</span>
+<span class="token punctuation">.</span>/gradlew idea
+
+<span class="token comment" spellcheck="true">//在settings.gradle  中設定 ide 配置</span>
+<span class="token comment" spellcheck="true">//此项目采用 Lombok 簡化代碼，故請在idea中安装 Lombok 插件</span>
+<span class="token comment" spellcheck="true">//並在 “Build, Execution, Deployment”-> “Compiler” -> “Annotation Processors“”中，选中 Enable annotation processing）</span>
+apply plugin<span class="token operator">:</span> <span class="token string">'idea'</span>
+
+<span class="token comment" spellcheck="true">//檢查配置，設置checkstyle 與是否檢查的分類</span>
+apply plugin<span class="token operator">:</span> <span class="token string">'checkstyle'</span>
+style<span class="token punctuation">.</span>excludePackages <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">]</span>
+style<span class="token punctuation">.</span>excludeClasses <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">//測試覆蓋率設置與產生報表</span>
+apply plugin<span class="token operator">:</span> <span class="token string">'jacoco'</span>
+coverage<span class="token punctuation">.</span>excludePackages <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">]</span>
+coverage<span class="token punctuation">.</span>excludeClasses <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">//資料庫遷移</span>
+<span class="token comment" spellcheck="true">//使用 flyway 工具</span>
+plugins <span class="token punctuation">{</span>
+    id <span class="token string">"org.flywaydb.flyway"</span> version <span class="token string">"5.2.4"</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//資料庫連線配置</span>
+flyway <span class="token punctuation">{</span>
+    url <span class="token operator">=</span> <span class="token string">'jdbc:mysql://localhost:3306/zero_test?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false'</span>
+    user <span class="token operator">=</span> <span class="token string">'zero'</span>
+    password <span class="token operator">=</span> <span class="token string">'geektime'</span>
+    locations <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"filesystem:$rootDir/gradle/config/migration"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//資料庫修改範例</span>
+CREATE TABLE <span class="token function">zero_users</span><span class="token punctuation">(</span>
+    id <span class="token function">bigint</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> not null AUTO_INCREMENT<span class="token punctuation">,</span>
+    name <span class="token function">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> not null unique<span class="token punctuation">,</span>
+    password <span class="token function">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> not null<span class="token punctuation">,</span>
+    primary <span class="token function">key</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//執行資料庫的遷移</span>
+<span class="token punctuation">.</span>/gradlew flywayMigrate
+
+<span class="token comment" spellcheck="true">//構建與執行應用(1)</span>
+<span class="token comment" spellcheck="true">//於zero-bootstrap/build/libs 下生成一个可执行 JAR 包</span>
+<span class="token comment" spellcheck="true">//build前會依賴check</span>
+<span class="token punctuation">.</span>/gradlew build
+java <span class="token operator">-</span>jar zero<span class="token operator">-</span>bootstrap<span class="token operator">/</span>build<span class="token operator">/</span>libs<span class="token operator">/</span>zero<span class="token operator">-</span>bootstrap<span class="token operator">-</span><span class="token operator">*</span><span class="token operator">-</span>boot<span class="token punctuation">.</span>jar
+
+<span class="token comment" spellcheck="true">//構建與執行應用(2)</span>
+<span class="token comment" spellcheck="true">//可使用gradlew 指令直接執行構建與執行</span>
+<span class="token punctuation">.</span>/gradlew bootRun
+
+<span class="token comment" spellcheck="true">//於瀏覽器訪問</span>
+<span class="token punctuation">{</span>
+    <span class="token string">"username"</span><span class="token operator">:</span> <span class="token string">"foo"</span><span class="token punctuation">,</span>
+    <span class="token string">"password"</span><span class="token operator">:</span> <span class="token string">"bar"</span>
+<span class="token punctuation">}</span>
+http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">8080</span><span class="token operator">/</span>users
+</code></pre>
 <ul>
 <li>32  持续交付：有持续集成就够了吗？</li>
 <li>33  如何做好验收测试？</li>
