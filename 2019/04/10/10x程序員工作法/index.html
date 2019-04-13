@@ -459,6 +459,25 @@
 <li>接口隔离原则（Interface segregation principle，ISP）</li>
 <li>依赖倒置原则（Dependency inversion principle，DIP）</li>
 </ul>
+<h3 id="項目自動化"><a href="#項目自動化" class="headerlink" title="項目自動化"></a>項目自動化</h3><p><code>`</code>java<br>//取得測試代碼<br>git clone  <a href="https://github.com/dreamhead/geektime-zero.git" target="_blank" rel="noopener">https://github.com/dreamhead/geektime-zero.git</a><br>cd geektime-zero</p>
+<p>//使用gradlew 指令生成 idea的IDE工程的優點<br>//1.使用gradlew 產生的工程會鎖定gradle版本，避免造成版本差異<br>//2.直接使用ide 打開工，不同人的ide 版本也會影響工程的內容<br>./gradlew idea</p>
+<p>//在settings.gradle  中設定 ide 配置<br>//此项目采用 Lombok 簡化代碼，故請在idea中安装 Lombok 插件<br>//並在 “Build, Execution, Deployment”-&gt; “Compiler” -&gt; “Annotation Processors“”中，选中 Enable annotation processing）<br>apply plugin: ‘idea’</p>
+<p>//檢查配置，設置checkstyle 與是否檢查的分類<br>apply plugin: ‘checkstyle’<br>style.excludePackages = [<br>]<br>style.excludeClasses = [<br>]</p>
+<p>//測試覆蓋率設置與產生報表<br>apply plugin: ‘jacoco’<br>coverage.excludePackages = [<br>]<br>coverage.excludeClasses = [<br>]</p>
+<p>//資料庫遷移<br>//使用 flyway 工具<br>plugins {<br>    id “org.flywaydb.flyway” version “5.2.4”<br>}</p>
+<p>//資料庫連線配置<br>flyway {<br>    url = ‘jdbc:mysql://localhost:3306/zero_test?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false’<br>    user = ‘zero’<br>    password = ‘geektime’<br>    locations = [“filesystem:$rootDir/gradle/config/migration”]<br>}</p>
+<p>//資料庫修改範例<br>CREATE TABLE zero_users(<br>    id bigint(20) not null AUTO_INCREMENT,<br>    name varchar(100) not null unique,<br>    password varchar(100) not null,<br>    primary key(id)<br>);</p>
+<p>//執行資料庫的遷移<br>./gradlew flywayMigrate</p>
+<p>//構建與執行應用(1)<br>//於zero-bootstrap/build/libs 下生成一个可执行 JAR 包<br>//build前會依賴check<br>./gradlew build<br>java -jar zero-bootstrap/build/libs/zero-bootstrap-*-boot.jar</p>
+<p>//構建與執行應用(2)<br>//可使用gradlew 指令直接執行構建與執行<br>./gradlew bootRun</p>
+<p>//於瀏覽器訪問<br>{<br>    “username”: “foo”,<br>    “password”: “bar”<br>}<br><a href="http://localhost:8080/users" target="_blank" rel="noopener">http://localhost:8080/users</a></p>
+<ul>
+<li>32  持续交付：有持续集成就够了吗？</li>
+<li>33  如何做好验收测试？</li>
+<li>34  你的代码是怎么变混乱的？</li>
+<li>35  总是在说MVC分层架构，但你真的理解分层吗？</li>
+<li>37  先做好DDD再谈微服务吧，那只是一种部署形式</li>
+</ul>
 
             </div>
             <hr>
