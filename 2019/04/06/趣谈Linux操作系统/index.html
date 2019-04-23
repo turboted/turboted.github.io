@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="keywords" content="趣談Linux操作系統 筆記, Turboted">
     <meta name="description" content="此心得筆記為閱讀極客時間-趣談Linux操作系統
-02 學習路徑：爬過這六個陡坡，你就能對Linux了如指掌1.拋棄舊的思維習慣，熟練使用 Linux 命令行《 鳥哥的 Linux 私房菜 》《 Linux 系統管理技術手冊 》
-2.通過系">
+https://www.kernel.org
+02 學習路徑：爬過這六個陡坡，你就能對Linux了如指掌1.拋棄舊的思維習慣，熟練使用 Linux 命令行《 鳥哥的 Linux 私房菜 》《">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -408,6 +408,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>此心得筆記為閱讀極客時間-趣談Linux操作系統</p>
+<p><a href="https://www.kernel.org" target="_blank" rel="noopener">https://www.kernel.org</a></p>
 <h1 id="02-學習路徑：爬過這六個陡坡，你就能對Linux了如指掌"><a href="#02-學習路徑：爬過這六個陡坡，你就能對Linux了如指掌" class="headerlink" title="02 學習路徑：爬過這六個陡坡，你就能對Linux了如指掌"></a>02 學習路徑：爬過這六個陡坡，你就能對Linux了如指掌</h1><h3 id="1-拋棄舊的思維習慣，熟練使用-Linux-命令行"><a href="#1-拋棄舊的思維習慣，熟練使用-Linux-命令行" class="headerlink" title="1.拋棄舊的思維習慣，熟練使用 Linux 命令行"></a>1.拋棄舊的思維習慣，熟練使用 Linux 命令行</h3><p>《 鳥哥的 Linux 私房菜 》《 Linux 系統管理技術手冊 》</p>
 <h3 id="2-通過系統調用或glibc，學會自己進行程式設計"><a href="#2-通過系統調用或glibc，學會自己進行程式設計" class="headerlink" title="2.通過系統調用或glibc，學會自己進行程式設計"></a>2.通過系統調用或glibc，學會自己進行程式設計</h3><p>《Unix/Linux編程實踐教程》 -&gt;《UNIX 環境高級編程》</p>
 <h3 id="3-了解-Linux-內核機制，反複研習重點突破"><a href="#3-了解-Linux-內核機制，反複研習重點突破" class="headerlink" title="3.了解 Linux 內核機制，反複研習重點突破"></a>3.了解 Linux 內核機制，反複研習重點突破</h3><p>《 深入理解 LINUX 內核 》<br>《 庖丁解牛Linux內核分析》</p>
@@ -415,63 +416,76 @@
 <h3 id="5-實驗定製化-Linux-組件，無人能阻擋你成為內核開發工程師"><a href="#5-實驗定製化-Linux-組件，無人能阻擋你成為內核開發工程師" class="headerlink" title="5.實驗定製化 Linux 組件，無人能阻擋你成為內核開發工程師"></a>5.實驗定製化 Linux 組件，無人能阻擋你成為內核開發工程師</h3><p>從看內核代碼，到上手修改內核代碼<br>客製化自己的模塊。例如，你可以自己實現一個設備驅動程式，實現一個自己的系統調用，或者實現一個自己的文件系統等</p>
 <h3 id="6-最後一坡：面向真實場景的開發，實踐沒有終點"><a href="#6-最後一坡：面向真實場景的開發，實踐沒有終點" class="headerlink" title="6.最後一坡：面向真實場景的開發，實踐沒有終點"></a>6.最後一坡：面向真實場景的開發，實踐沒有終點</h3><p><img src="/images/趣谈Linux操作系统-爬坡路線圖.png" alt="爬坡路線圖"></p>
 <hr>
-<h1 id="03-你可以把Linux內核當成一家軟體外包公司的老闆"><a href="#03-你可以把Linux內核當成一家軟體外包公司的老闆" class="headerlink" title="03 你可以把Linux內核當成一家軟體外包公司的老闆"></a>03 你可以把Linux內核當成一家軟體外包公司的老闆</h1><p>User -&gt; Keyboard &amp; Mouse(Input Device) -&gt; Input Driver -&gt; Interrupt -&gt; Interrupt Service Routines(ISR) -&gt; Binary Program -&gt; File Management Subsystem -&gt; System Call Subsystem -&gt; Resource Allocation -&gt; Process Management Subsystem -&gt; Memory Management Subsystem -&gt; Execute Program(Process) -&gt; Output Driver -&gt; Output Device(Display)</p>
+<h1 id="03-你可以把Linux內核當成一家軟體外包公司的老闆-2019-04-13"><a href="#03-你可以把Linux內核當成一家軟體外包公司的老闆-2019-04-13" class="headerlink" title="03 你可以把Linux內核當成一家軟體外包公司的老闆(2019-04-13)"></a>03 你可以把Linux內核當成一家軟體外包公司的老闆(2019-04-13)</h1><p>User -&gt; Keyboard &amp; Mouse(Input Device) -&gt; Input Driver -&gt; Interrupt -&gt; Interrupt Service Routines(ISR) -&gt; Binary Program -&gt; File Management Subsystem -&gt; System Call Subsystem -&gt; Resource Allocation -&gt; Process Management Subsystem -&gt; Memory Management Subsystem -&gt; Execute Program(Process) -&gt; Output Driver -&gt; Output Device(Display)</p>
 <p>User -&gt; 客戶需求 -&gt; 客戶對接員 -&gt; 停止原有服務了解客戶需求 -&gt; 處理需求的方法 -&gt; 需求立項 -&gt; 項目計畫書 -&gt; 保存文件檔案庫 -&gt; 辦事大廳(資源分配) -&gt; 成立項目組(開發人員、項目經理、項目管理流程) -&gt; 項目管理系統 -&gt; 會議室管理系統 -&gt; 執行項目計劃 -&gt;  交付人員 -&gt; 展示需求</p>
 <p><img src="/images/趣谈Linux操作系统-系統項目對比圖.png" alt="系統項目對比圖"></p>
 <p><img src="/images/趣谈Linux操作系统-內核結構圖.png" alt="內核結構圖"></p>
 <hr>
-<h1 id="04-快速上手幾個Linux命令：每家公司都有自己的黑話"><a href="#04-快速上手幾個Linux命令：每家公司都有自己的黑話" class="headerlink" title="04 快速上手幾個Linux命令：每家公司都有自己的黑話"></a>04 快速上手幾個Linux命令：每家公司都有自己的黑話</h1><h2 id="常用的-command-line-指令"><a href="#常用的-command-line-指令" class="headerlink" title="常用的 command line  指令"></a>常用的 command line  指令</h2><h3 id="用戶與密碼"><a href="#用戶與密碼" class="headerlink" title="用戶與密碼"></a>用戶與密碼</h3><p>passwd 修改密碼<br><br>useradd 創建用戶<br><br>useradd -g 群組設定<br></p>
-<p>mac 沒有 useradd 指令<br><br>1.System Preferences -&gt; Users &amp; Groups 設定<br><br>2.使用 dscl command<br></p>
-<p>顯示所有 user 對應的 group</p>
-<pre><code>$ sudo dscl . -list /groups GroupMembership 
-</code></pre><p>添加 user 到 group</p>
-<pre><code>$ sudo dscl . -append /Groups/groupname GroupMembership username
-</code></pre><p>從 group 中刪除 user</p>
-<pre><code>$ sudo dscl . -delete /Groups/groupname GroupMembership username
-</code></pre><p>用戶名:密碼:用戶ID(UID):群組ID(GID):家目錄:Shell path</p>
-<pre><code># cat /etc/passwd
+<h1 id="04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20"><a href="#04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20" class="headerlink" title="04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)"></a>04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)</h1><h2 id="常用的-command-line-指令"><a href="#常用的-command-line-指令" class="headerlink" title="常用的 command line  指令"></a>常用的 command line  指令</h2><h3 id="用戶與密碼"><a href="#用戶與密碼" class="headerlink" title="用戶與密碼"></a>用戶與密碼</h3><font color="orange">passwd</font> 修改密碼<br><br><font color="orange">useradd</font> 創建用戶<br><br><font color="orange">useradd</font> -g 群組設定<br><br><br>mac 沒有 useradd 指令<br><br>1.System Preferences -&gt; Users &amp; Groups 設定<br><br>2.使用 dscl command<br><br><br>顯示所有 user 對應的 group<br><code>$ sudo dscl . -list /groups GroupMembership</code><br>添加 user 到 group<br><code>$ sudo dscl . -append /Groups/groupname GroupMembership username</code><br>從 group 中刪除 user<br><code>$ sudo dscl . -delete /Groups/groupname GroupMembership username</code><br>用戶名:密碼:用戶ID(UID):群組ID(GID):家目錄:Shell path<br><code># cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 ......
-cliu8:x:1000:1000::/home/cliu8:/bin/bash
-</code></pre><p>群組名稱:群組密碼:GID</p>
-<pre><code># cat /etc/group
+cliu8:x:1000:1000::/home/cliu8:/bin/bash</code><br>群組名稱:群組密碼:GID<br><code># cat /etc/group
 root:x:0:
 ......
-cliu8:x:1000:
-</code></pre><p><a href="http://linux.vbird.org/linux_basic/0410accountmanager.php" target="_blank" rel="noopener">鳥哥Linux 帳號管理與 ACL 權限設定</a></p>
-<h3 id="瀏覽文件"><a href="#瀏覽文件" class="headerlink" title="瀏覽文件"></a>瀏覽文件</h3><p>用列表方式列出文件</p>
-<ul>
-<li>d:目錄 -:文件</li>
-<li>rwx:所屬用戶可讀可寫可執行 </li>
-<li>r-x:所屬群組可讀不可寫可執行 </li>
-<li>r-x:其它用戶可讀不可寫可執行</li>
-<li>root: 所屬用戶</li>
-<li>root:所屬群組 </li>
-<li>4096:文件大小 </li>
-<li>Oct20:文件修改日期 </li>
-<li>apt:文件名稱<pre><code># ls -l
+cliu8:x:1000:</code><br><a href="http://linux.vbird.org/linux_basic/0410accountmanager.php" target="_blank" rel="noopener">鳥哥Linux 帳號管理與 ACL 權限設定</a><br><br>### 瀏覽文件<br>用列表方式列出文件<br><em> d:目錄 -:文件
+</em> rwx:所屬用戶可讀可寫可執行<br><em> r-x:所屬群組可讀不可寫可執行 
+</em> r-x:其它用戶可讀不可寫可執行<br><em> root: 所屬用戶
+</em> root:所屬群組<br><em> 4096:文件大小 
+</em> Oct20:文件修改日期<br><em> apt:文件名稱<br><code># ls -l
 drwxr-xr-x 6 root root    4096 Oct 20  2017 apt
--rw-r--r-- 1 root root     211 Oct 20  2017 hosts
-</code></pre></li>
-</ul>
-<p><a href="http://linux.vbird.org/linux_basic/0220filemanager.php" target="_blank" rel="noopener">鳥哥Linux 檔案與目錄管理</a></p>
-<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p>CentOS 下面是 yum，Ubuntu 下面是 apt-get，mac 使用 brew</p>
-<p><a href="https://brew.sh/index_zh-tw" target="_blank" rel="noopener">Homebrew</a></p>
-<pre><code>CentOS 下面使用 rpm -i jdk-XXX_linux-x64_bin.rpm
-Ubuntu 下面使用 dpkg -i jdk-XXX_linux-x64_bin.deb
-</code></pre><h3 id="環境path設定"><a href="#環境path設定" class="headerlink" title="環境path設定"></a>環境path設定</h3><pre><code>linux為 ./.bashrc
-mac為 ./.bash_profile
-</code></pre><h3 id="vim-編輯器"><a href="#vim-編輯器" class="headerlink" title="vim 編輯器"></a>vim 編輯器</h3><p>i鍵 進入編輯模式<br><br>esc鍵 退出編輯模式<br><br>:wq write &amp; quit<br><br><a href="http://linux.vbird.org/linux_basic/0310vi.php#vi_vim" target="_blank" rel="noopener">鳥哥 vim</a></p>
-<p>###後台運行程序</p>
-<pre><code>創建
+-rw-r--r-- 1 root root     211 Oct 20  2017 hosts</code><br><br><a href="http://linux.vbird.org/linux_basic/0220filemanager.php" target="_blank" rel="noopener">鳥哥Linux 檔案與目錄管理</a><br><br>### 安裝<br>CentOS 下面是 yum，Ubuntu 下面是 apt-get，mac 使用 brew<br><br><a href="https://brew.sh/index_zh-tw" target="_blank" rel="noopener">Homebrew</a><br><code>CentOS 下面使用 rpm -i jdk-XXX_linux-x64_bin.rpm
+Ubuntu 下面使用 dpkg -i jdk-XXX_linux-x64_bin.deb</code><br>### 環境path設定<br><code>linux為 ./.bashrc
+mac為 ./.bash_profile</code><br>### vim 編輯器<br>i鍵 進入編輯模式<br><br>esc鍵 退出編輯模式<br><br>:wq write &amp; quit<br><br><a href="http://linux.vbird.org/linux_basic/0310vi.php#vi_vim" target="_blank" rel="noopener">鳥哥 vim</a><br><br>###後台運行程序<br><code>創建
 nohup command &gt;out.file 2&gt;&amp;1 &amp;
 刪除
-ps -ef | grep &quot;your_process&quot; | awk &#39;{print $2}&#39; | xargs kill 
-</code></pre><p>这里面，“1”表示文件描述符 1，表示标准输出，“2”表示文件描述符 2，意思是标准错误输出，“2&gt;&amp;1”表示标准输出和错误输出合并了。合并到哪里去呢？到 out.file 里。</p>
-<p><a href="https://livc.io/blog/172" target="_blank" rel="noopener">Linux中的nohup与2&gt;&amp;1 &amp;</a></p>
-<h3 id="開關機"><a href="#開關機" class="headerlink" title="開關機"></a>開關機</h3><pre><code>shutdown -h now 现在就关机
-reboot 就是重启。
-</code></pre>
+ps -ef | grep &quot;your_process&quot; | awk &#39;{print $2}&#39; | xargs kill</code><br>这里面，“1”表示文件描述符 1，表示标准输出，“2”表示文件描述符 2，意思是标准错误输出，“2&gt;&amp;1”表示标准输出和错误输出合并了。合并到哪里去呢？到 out.file 里。<br><br><a href="https://livc.io/blog/172" target="_blank" rel="noopener">Linux中的nohup与2&gt;&amp;1 &amp;</a><br>### 開關機<br><code>shutdown -h now 现在就关机
+reboot 就是重启。</code><br><br># 05 学会几个系统调用：咱们公司能接哪些类型的项目？(2019-04-21)<br>### Process Manager
+</em> 1.創建process是由parent process調用<font color="orange">fork</font>創建child process<br><em> 2.創建時會將parent 的 resource 完全copy 一份至 child中
+</em> 3.fork返回後使用 if-else 判返回值判定是child(返回0) or parent(返回 process id)<br><em> 4.若返回parent，接著執行原本還沒做完的工作
+</em> 5.若返回child，調用 execve 開始執行另外一個程序<br><em> 6.此時就完成 fork，child &amp; parent 就完整的分開獨自運行了
+</em> parent 可使用 <font color="orange">waitpid</font> 確認 child  的情況<br><em> os 創建時，會自動創建第一個 parent process(祖宗進程)<br><br><img src="/images/趣谈Linux操作系统-fork_process.png" alt="fork process"><br><img src="/images/趣谈Linux操作系统-fork_resource.png" alt="fork resource"><br><br>### Memory Manager
+</em> 每個process 都有獨立的 memory 空間<br><em> 其空間包含 code segment 與 data segment
+</em> 動態產生的局部變數或是malloc產生的空間稱為 heap<br><em> 32bit 的最大使用 memory 上限為 4gb
+</em> memory 空間是有限的，當真正使用時再由 memory manager 進行分配<br><em> 分配小空間 memory 使用 <font color="orange">brk</font>
+</em> 分配大空間 memory  使用 <font color="orange">mmap</font>
+
+<p><img src="/images/趣谈Linux操作系统-memory_manager.png" alt="Memory Manager"></p>
+<h3 id="File-Manager"><a href="#File-Manager" class="headerlink" title="File Manager"></a>File Manager</h3><ul>
+<li><font color="orange">open</font>/<font color="orange">close</font>/<font color="orange">create</font>/<font color="orange">read</font>/<font color="orange">write</font></li>
+<li>open file 之後可以 <font color="orange">lseek</font>  跳到文件的某位置</li>
+</ul>
+<h4 id="Linux的特點，一切皆是文件"><a href="#Linux的特點，一切皆是文件" class="headerlink" title="Linux的特點，一切皆是文件"></a>Linux的特點，一切皆是文件</h4><ul>
+<li>process本身是二進制的程序文件</li>
+<li>process起動時需要加載配置文件，如 yml properties log 是文本文件</li>
+<li>日志輸出到console 是標準輸出 stdout 文件</li>
+<li>a process output 可當作 b process input，也稱為 pipleline 文件</li>
+<li>網路通訊 為socket 文件</li>
+<li>usb hdd 為device文件</li>
+<li>folder 為folder 文件</li>
+<li>/proc 為 process id 文件</li>
+<li>每個文件都有獨立的文件描述符<br>文件描述符:在linux當中，設備也是文件形式的存在，要對設備進行操作，必需先打開這個文件，打開後就會取得文件描述符<br>其為一個正整數，每個process 在 PCB（Process Control Block）中保存著一份文件描述符表，利用文件描述符當index<br>就可以取得文件描述符表對應的 address point，進行相關的操作 </li>
+</ul>
+<p><img src="/images/趣谈Linux操作系统-document.jpg" alt="Document"></p>
+<h3 id="Exception-or-Signal"><a href="#Exception-or-Signal" class="headerlink" title="Exception or Signal"></a>Exception or Signal</h3><ul>
+<li>執行process 時 keyboard 輸入 ctrl + c</li>
+<li>illegal access memory</li>
+<li>device 出現異常</li>
+<li>process 被 kill<br>sigaction 可注冊信號處理函數，當異常信號發生時，可自動執行相對應函數</li>
+</ul>
+<h3 id="process-communication"><a href="#process-communication" class="headerlink" title="process communication"></a>process communication</h3><h4 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h4><ul>
+<li><font color="orange">msgget</font> create new queue</li>
+<li><font color="orange">msgsnd</font> write message to queue</li>
+<li><font color="orange">msgrcv</font> read message from queue and delete that</li>
+<li><font color="orange">msgctl</font> get or setting queue attributes<h4 id="Share-memory"><a href="#Share-memory" class="headerlink" title="Share memory"></a>Share memory</h4></li>
+<li><font color="orange">shmget</font> create new share memory block</li>
+<li><font color="orange">shmat</font> 將share memory block mapping 至自己的空間中就可以讀寫</li>
+<li>為了防止多人同時存取share memory，需要有 semaphore 機制</li>
+</ul>
+<p>當有人存取share memory 時，調用<font color="orange">sem_wait</font>，禁止其它人訪問<br>存取完後調用 <font color="orange">sem_post</font>，其它人才可訪問該 share memory</p>
+<p>查看process所使用的lib<br><br>Linux:ldd<br><br>Mac:otool<br><br>查看process調用的systemcall<br><br>Linux:strace<br><br>Mac:dtruss</p>
+<p><a href="https://www.jianshu.com/p/6acd36976fba" target="_blank" rel="noopener">dtrace</a></p>
+<p><img src="/images/趣谈Linux操作系统-systemcall.jpg" alt="System Call"></p>
+
             </div>
             <hr>
 
@@ -693,21 +707,17 @@ reboot 就是重启。
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/02/極簡數據結構(1)-語言基礎/">
+                <a href="/2019/04/02/Android面試(1)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="極簡數據結構(1)-語言基礎">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Android面試(1)">
                         
-                        <span class="card-title">極簡數據結構(1)-語言基礎</span>
+                        <span class="card-title">Android面試(1)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">1.輸入輸出http://www.runoob.com/java/java-scanner-class.html
-import java.util.Scanner;
-
-public class test {
-    public stati</div>
+                    <div class="summary block-with-text">參考資料https://www.jianshu.com/p/718aa3c1a70bhttps://www.jianshu.com/p/602b1ec4ca7ahttps://developer.android.com/guide/comp</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-02
@@ -723,8 +733,8 @@ public class test {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/數據結構/" target="_blank">
-                        <span class="chip bg-color">數據結構</span>
+                    <a href="/tags/Android、面試/" target="_blank">
+                        <span class="chip bg-color">Android、面試</span>
                     </a>
                     
                 </div>

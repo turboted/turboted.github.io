@@ -412,14 +412,16 @@
 <li>Model：實體模型（數據的獲取、存儲、數據狀態變化）</li>
 <li>Controllor：Activity業務邏輯，數據處理和UI處理</li>
 </ul>
-<p>Controller同時擁有View跟Model，並且做為統整兩邊的橋樑的角色，故Controller的工作量大。<br>Android中代表View的XML視圖功能太弱，導致大量處理View的邏輯只能寫在Activity中，這樣Activity就充當了View和Controller兩個角色。</p>
+<p>優點:<br><br>1.當業務邏輯變更時，只需要變更Controller不需要變更View和Model.<br>2.觀察者模式可以多視圖同時更新.</p>
+<p>缺點：<br><br>Controller同時擁有View跟Model，並且做為統整兩邊的橋樑的角色，故Controller的工作量大。<br>Android中代表View的XML視圖功能太弱，導致大量處理View的邏輯只能寫在Activity中，這樣Activity就充當了View和Controller兩個角色。<br>View和Model有強依賴性，故無法將View有效的分離組件化</p>
 <h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><ul>
 <li>View: Activity和XML，負責View的繪製以及與用戶的交互 </li>
 <li>Model: 實體模型（數據的獲取、存儲、數據狀態變化）</li>
 <li>Presenter: 負責完成View與Model間的交互和業務邏輯</li>
 </ul>
 <p>通過抽象的View與IPresenter接口，將Presenter與View進行解耦，透過接口進行操作，而不是直接操作View或Presenter層，從而讓Activity成為真正的View層。</p>
-<p>弊端：<br><br>1.P層與V層是通過接口進行交互的，會存在大量接口代碼<br><br>2.以UI為驅動的模型，使用需考慮控件的引用、UI線程與Activity的生命周期<br><br>3.UI若改變，牽扯的更新UI的接口就必須得換<br><br>4.複雜的業務同時也可能會導致P層太大，代碼臃腫的問題依然不能解決</p>
+<p>優點:<br><br>1.View 與 Model 沒有依賴，故可做為可復用的View組件</p>
+<p>缺點：<br><br>1.P層與V層是通過接口進行交互的，會存在大量接口代碼<br><br>2.以UI為驅動的模型，使用需考慮控件的引用、UI線程與Activity的生命周期<br><br>3.UI若改變，牽扯的更新UI的接口就必須得換<br><br>4.複雜的業務同時也可能會導致P層太大，代碼臃腫的問題依然不能解決</p>
 <h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><ul>
 <li>Model: 實體模型（數據的獲取、存儲、數據狀態變化）</li>
 <li>View: 對應於Activity和xml，負責View的繪製以及與用戶交互</li>
@@ -432,6 +434,8 @@
 <h2 id="2-MVVM-各層分工如下"><a href="#2-MVVM-各層分工如下" class="headerlink" title="2.MVVM 各層分工如下"></a>2.MVVM 各層分工如下</h2><h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><p>隻做UI相關工作，在XML、Activity和Fragment寫View層的代碼，更新UI是通過數據綁定實現，盡量在VM裏麵做（更新綁定的數據源即可），Activity要做的事就是初始化一些控件（如控件的顔色，添加RecyclerView的分割線），V層可以處理事件（但是我們更希望UI事件通過Command來綁定）。簡單地說：V層不做任何業務邏輯、不涉及操作數據、不處理數據，UI和數據嚴格的分開。</p>
 <h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h3><p>VM只做和業務邏輯和業務數據相關的事，不會持有任何控件的引用，更不會在VM中通過UI控件的引用去做更新UI的事情。VM就是專註於業務的邏輯處理，做的事情也都只是對數據的操作（這些數據綁定在相應的控件上會自動去更改UI）。同時DataBinding框架已經支援雙嚮綁定，讓我們可以通過雙嚮綁定獲取V層反饋給VM層的數據，並對這些數據上進行操作。關於對UI控件事件的處理，我們通過BindingAdapter對一些常用的事件封裝成一個個Command，對於每個事件我們用一個ReplyCommand去處理，ReplyCommand會把你可能需要的數據帶給你，這使得我們在VM層處理事件的時候只需要關心處理數據就行了</p>
 <h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>M層的任務是數據的獲取、存儲、狀態變化。M層包括實體模型（Bean）、Retrofit的Service ，獲取網路數據接口，在地存儲（增刪改查）接口，數據變化監聽等。Model提供數據獲取接口供VM調用，經數據轉換和操作並最終映射綁定到V層某個UI元素的屬性上。</p>
+<p>優點:<br><br>1.提高雙向綁定機制，提高代碼的可維護性<br>2.由於使用Binder做同步邏輯，故測試時只要保證Model正確，View就正確，簡化測試。</p>
+<p>缺點:<br><br>1.簡單的圖形界面不適用，無法體現優點<br>2.數據綁定是寫在View當中，這些內容無法打斷點deubg.</p>
 <p>Ios MVVM 解決方案<br><br><a href="https://www.codementor.io/koromiko/mvvm-app-cl1wvw2sh" target="_blank" rel="noopener">https://www.codementor.io/koromiko/mvvm-app-cl1wvw2sh</a></p>
 <p>Android MVVM 解決方案<br><br><a href="https://www.jianshu.com/p/996d76b2317f" target="_blank" rel="noopener">https://www.jianshu.com/p/996d76b2317f</a><br><br><a href="https://ithelp.ithome.com.tw/articles/10192829" target="_blank" rel="noopener">https://ithelp.ithome.com.tw/articles/10192829</a></p>
 <p>Flutter MVVM 解決方案<br><br><a href="https://www.jianshu.com/p/ae44ca90cde3" target="_blank" rel="noopener">https://www.jianshu.com/p/ae44ca90cde3</a><br><br><a href="https://cloud.tencent.com/developer/article/1372224" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1372224</a></p>
@@ -607,17 +611,21 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/04/02/Android面試(1)/">
+                <a href="/2019/04/02/極簡數據結構(1)-語言基礎/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Android面試(1)">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="極簡數據結構(1)-語言基礎">
                         
-                        <span class="card-title">Android面試(1)</span>
+                        <span class="card-title">極簡數據結構(1)-語言基礎</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">參考資料https://www.jianshu.com/p/718aa3c1a70bhttps://www.jianshu.com/p/602b1ec4ca7ahttps://developer.android.com/guide/comp</div>
+                    <div class="summary block-with-text">1.輸入輸出http://www.runoob.com/java/java-scanner-class.html
+import java.util.Scanner;
+
+public class test {
+    public stati</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-02
@@ -633,8 +641,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Android、面試/" target="_blank">
-                        <span class="chip bg-color">Android、面試</span>
+                    <a href="/tags/數據結構/" target="_blank">
+                        <span class="chip bg-color">數據結構</span>
                     </a>
                     
                 </div>
