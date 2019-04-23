@@ -421,10 +421,26 @@ https://www.kernel.org
 <p><img src="/images/趣谈Linux操作系统-系統項目對比圖.png" alt="系統項目對比圖"></p>
 <p><img src="/images/趣谈Linux操作系统-內核結構圖.png" alt="內核結構圖"></p>
 <hr>
-<h1 id="04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20"><a href="#04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20" class="headerlink" title="04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)"></a>04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)</h1><h2 id="常用的-command-line-指令"><a href="#常用的-command-line-指令" class="headerlink" title="常用的 command line  指令"></a>常用的 command line  指令</h2><h3 id="用戶與密碼"><a href="#用戶與密碼" class="headerlink" title="用戶與密碼"></a>用戶與密碼</h3><font color="orange">passwd</font> 修改密碼<br><br><font color="orange">useradd</font> 創建用戶<br><br><font color="orange">useradd</font> -g 群組設定<br><br><br>mac 沒有 useradd 指令<br><br>1.System Preferences -&gt; Users &amp; Groups 設定<br><br>2.使用 dscl command<br><br><br>顯示所有 user 對應的 group<br><code>$ sudo dscl . -list /groups GroupMembership</code><br>添加 user 到 group<br><code>$ sudo dscl . -append /Groups/groupname GroupMembership username</code><br>從 group 中刪除 user<br><code>$ sudo dscl . -delete /Groups/groupname GroupMembership username</code><br>用戶名:密碼:用戶ID(UID):群組ID(GID):家目錄:Shell path<br><code># cat /etc/passwd
+<h1 id="04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20"><a href="#04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20" class="headerlink" title="04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)"></a>04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)</h1><h2 id="常用的-command-line-指令"><a href="#常用的-command-line-指令" class="headerlink" title="常用的 command line  指令"></a>常用的 command line  指令</h2><h3 id="用戶與密碼"><a href="#用戶與密碼" class="headerlink" title="用戶與密碼"></a>用戶與密碼</h3><font color="orange">passwd</font> 修改密碼<br><br><font color="orange">useradd</font> 創建用戶<br><br><font color="orange">useradd</font> -g 群組設定<br><br><br>mac 沒有 useradd 指令<br><br>1.System Preferences -&gt; Users &amp; Groups 設定<br><br>2.使用 dscl command<br><br><br>顯示所有 user 對應的 group<br><code>$ sudo dscl . -list /groups GroupMembership 
+
+添加 user 到 group
+
+$ sudo dscl . -append /Groups/groupname GroupMembership username
+
+從 group 中刪除 user
+
+$ sudo dscl . -delete /Groups/groupname GroupMembership username
+
+用戶名:密碼:用戶ID(UID):群組ID(GID):家目錄:Shell path
+
+# cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 ......
-cliu8:x:1000:1000::/home/cliu8:/bin/bash</code><br>群組名稱:群組密碼:GID<br><code># cat /etc/group
+cliu8:x:1000:1000::/home/cliu8:/bin/bash
+
+群組名稱:群組密碼:GID
+
+# cat /etc/group
 root:x:0:
 ......
 cliu8:x:1000:</code><br><a href="http://linux.vbird.org/linux_basic/0410accountmanager.php" target="_blank" rel="noopener">鳥哥Linux 帳號管理與 ACL 權限設定</a><br><br>### 瀏覽文件<br>用列表方式列出文件<br><em> d:目錄 -:文件
@@ -435,7 +451,7 @@ cliu8:x:1000:</code><br><a href="http://linux.vbird.org/linux_basic/0410accountm
 drwxr-xr-x 6 root root    4096 Oct 20  2017 apt
 -rw-r--r-- 1 root root     211 Oct 20  2017 hosts</code><br><br><a href="http://linux.vbird.org/linux_basic/0220filemanager.php" target="_blank" rel="noopener">鳥哥Linux 檔案與目錄管理</a><br><br>### 安裝<br>CentOS 下面是 yum，Ubuntu 下面是 apt-get，mac 使用 brew<br><br><a href="https://brew.sh/index_zh-tw" target="_blank" rel="noopener">Homebrew</a><br><code>CentOS 下面使用 rpm -i jdk-XXX_linux-x64_bin.rpm
 Ubuntu 下面使用 dpkg -i jdk-XXX_linux-x64_bin.deb</code><br>### 環境path設定<br><code>linux為 ./.bashrc
-mac為 ./.bash_profile</code><br>### vim 編輯器<br>i鍵 進入編輯模式<br><br>esc鍵 退出編輯模式<br><br>:wq write &amp; quit<br><br><a href="http://linux.vbird.org/linux_basic/0310vi.php#vi_vim" target="_blank" rel="noopener">鳥哥 vim</a><br><br>###後台運行程序<br><code>創建
+mac為 ./.bash_profile</code><br>### vim 編輯器<br>i鍵 進入編輯模式<br><br>esc鍵 退出編輯模式<br><br>:wq write &amp; quit<br><br><a href="http://linux.vbird.org/linux_basic/0310vi.php#vi_vim" target="_blank" rel="noopener">鳥哥 vim</a><br><br>### 後台運行程序<br><code>創建
 nohup command &gt;out.file 2&gt;&amp;1 &amp;
 刪除
 ps -ef | grep &quot;your_process&quot; | awk &#39;{print $2}&#39; | xargs kill</code><br>这里面，“1”表示文件描述符 1，表示标准输出，“2”表示文件描述符 2，意思是标准错误输出，“2&gt;&amp;1”表示标准输出和错误输出合并了。合并到哪里去呢？到 out.file 里。<br><br><a href="https://livc.io/blog/172" target="_blank" rel="noopener">Linux中的nohup与2&gt;&amp;1 &amp;</a><br>### 開關機<br><code>shutdown -h now 现在就关机
@@ -707,17 +723,21 @@ reboot 就是重启。</code><br><br># 05 学会几个系统调用：咱们公�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/02/Android面試(1)/">
+                <a href="/2019/04/02/極簡數據結構(1)-語言基礎/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Android面試(1)">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="極簡數據結構(1)-語言基礎">
                         
-                        <span class="card-title">Android面試(1)</span>
+                        <span class="card-title">極簡數據結構(1)-語言基礎</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">參考資料https://www.jianshu.com/p/718aa3c1a70bhttps://www.jianshu.com/p/602b1ec4ca7ahttps://developer.android.com/guide/comp</div>
+                    <div class="summary block-with-text">1.輸入輸出http://www.runoob.com/java/java-scanner-class.html
+import java.util.Scanner;
+
+public class test {
+    public stati</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-02
@@ -733,8 +753,8 @@ reboot 就是重启。</code><br><br># 05 学会几个系统调用：咱们公�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Android、面試/" target="_blank">
-                        <span class="chip bg-color">Android、面試</span>
+                    <a href="/tags/數據結構/" target="_blank">
+                        <span class="chip bg-color">數據結構</span>
                     </a>
                     
                 </div>
