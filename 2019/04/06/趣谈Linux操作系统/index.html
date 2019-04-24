@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="趣談Linux操作系統 筆記, Turboted">
+    <meta name="keywords" content="趣談Linux操作系統 筆記(1-10), Turboted">
     <meta name="description" content="此心得筆記為閱讀極客時間-趣談Linux操作系統
 https://www.kernel.org
 02 學習路徑：爬過這六個陡坡，你就能對Linux了如指掌1.拋棄舊的思維習慣，熟練使用 Linux 命令行《 鳥哥的 Linux 私房菜 》《">
@@ -15,7 +15,7 @@ https://www.kernel.org
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>趣談Linux操作系統 筆記 | Turboted</title>
+    <title>趣談Linux操作系統 筆記(1-10) | Turboted</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -259,13 +259,13 @@ https://www.kernel.org
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        趣談Linux操作系統 筆記
+                        趣談Linux操作系統 筆記(1-10)
                     </div>
                 </div>
             </div>
@@ -421,56 +421,90 @@ https://www.kernel.org
 <p><img src="/images/趣谈Linux操作系统-系統項目對比圖.png" alt="系統項目對比圖"></p>
 <p><img src="/images/趣谈Linux操作系统-內核結構圖.png" alt="內核結構圖"></p>
 <hr>
-<h1 id="04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20"><a href="#04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20" class="headerlink" title="04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)"></a>04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)</h1><h2 id="常用的-command-line-指令"><a href="#常用的-command-line-指令" class="headerlink" title="常用的 command line  指令"></a>常用的 command line  指令</h2><h3 id="用戶與密碼"><a href="#用戶與密碼" class="headerlink" title="用戶與密碼"></a>用戶與密碼</h3><font color="orange">passwd</font> 修改密碼<br><br><font color="orange">useradd</font> 創建用戶<br><br><font color="orange">useradd</font> -g 群組設定<br><br><br>mac 沒有 useradd 指令<br><br>1.System Preferences -&gt; Users &amp; Groups 設定<br><br>2.使用 dscl command<br><br><br>顯示所有 user 對應的 group<br><code>$ sudo dscl . -list /groups GroupMembership 
+<h1 id="04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20"><a href="#04-快速上手幾個Linux命令：每家公司都有自己的黑話-2019-04-20" class="headerlink" title="04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)"></a>04 快速上手幾個Linux命令：每家公司都有自己的黑話(2019-04-20)</h1><h2 id="常用的-command-line-指令"><a href="#常用的-command-line-指令" class="headerlink" title="常用的 command line  指令"></a>常用的 command line  指令</h2><h3 id="用戶與密碼"><a href="#用戶與密碼" class="headerlink" title="用戶與密碼"></a>用戶與密碼</h3><p>passwd 修改密碼<br>useradd 創建用戶<br>useradd -g 群組設定</p>
+<pre class=" language-java"><code class="language-java">mac 沒有 useradd 指令<span class="token operator">&lt;</span>br<span class="token operator">></span>
+<span class="token number">1</span><span class="token punctuation">.</span>System Preferences <span class="token operator">-</span><span class="token operator">></span> Users <span class="token operator">&amp;</span> Groups 設定<span class="token operator">&lt;</span>br<span class="token operator">></span>
+<span class="token number">2</span><span class="token punctuation">.</span>使用 dscl command<span class="token operator">&lt;</span>br<span class="token operator">></span>
 
-添加 user 到 group
+<span class="token comment" spellcheck="true">//顯示所有 user 對應的 group</span>
+$ sudo dscl <span class="token punctuation">.</span> <span class="token operator">-</span>list <span class="token operator">/</span>groups GroupMembership 
 
-$ sudo dscl . -append /Groups/groupname GroupMembership username
+<span class="token comment" spellcheck="true">//添加 user 到 group</span>
+$ sudo dscl <span class="token punctuation">.</span> <span class="token operator">-</span>append <span class="token operator">/</span>Groups<span class="token operator">/</span>groupname GroupMembership username
 
-從 group 中刪除 user
+<span class="token comment" spellcheck="true">//從 group 中刪除 user</span>
+$ sudo dscl <span class="token punctuation">.</span> <span class="token operator">-</span>delete <span class="token operator">/</span>Groups<span class="token operator">/</span>groupname GroupMembership username
 
-$ sudo dscl . -delete /Groups/groupname GroupMembership username
+<span class="token comment" spellcheck="true">//用戶名:密碼:用戶ID(UID):群組ID(GID):家目錄:Shell path</span>
+cat <span class="token operator">/</span>etc<span class="token operator">/</span>passwd
+root<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">0</span><span class="token operator">:</span>root<span class="token operator">:</span><span class="token operator">/</span>root<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">/</span>bash
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+cliu8<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">1000</span><span class="token operator">:</span><span class="token number">1000</span><span class="token operator">:</span><span class="token operator">:</span><span class="token operator">/</span>home<span class="token operator">/</span>cliu8<span class="token operator">:</span><span class="token operator">/</span>bin<span class="token operator">/</span>bash
 
-用戶名:密碼:用戶ID(UID):群組ID(GID):家目錄:Shell path
-
-# cat /etc/passwd
-root:x:0:0:root:/root:/bin/bash
-......
-cliu8:x:1000:1000::/home/cliu8:/bin/bash
-
-群組名稱:群組密碼:GID
-
-# cat /etc/group
-root:x:0:
-......
-cliu8:x:1000:</code><br><br><a href="http://linux.vbird.org/linux_basic/0410accountmanager.php" target="_blank" rel="noopener">鳥哥Linux 帳號管理與 ACL 權限設定</a><br><br>### 瀏覽文件<br>用列表方式列出文件<br><em> d:目錄 -:文件
-</em> rwx:所屬用戶可讀可寫可執行<br><em> r-x:所屬群組可讀不可寫可執行 
-</em> r-x:其它用戶可讀不可寫可執行<br><em> root: 所屬用戶
-</em> root:所屬群組<br><em> 4096:文件大小 
-</em> Oct20:文件修改日期<br><em> apt:文件名稱<br><code># ls -l
+<span class="token comment" spellcheck="true">//群組名稱:群組密碼:GID</span>
+cat <span class="token operator">/</span>etc<span class="token operator">/</span>group
+root<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">0</span><span class="token operator">:</span>
+cliu8<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">1000</span><span class="token operator">:</span>
+</code></pre>
+<p><a href="http://linux.vbird.org/linux_basic/0410accountmanager.php" target="_blank" rel="noopener">鳥哥Linux 帳號管理與 ACL 權限設定</a></p>
+<h3 id="瀏覽文件"><a href="#瀏覽文件" class="headerlink" title="瀏覽文件"></a>瀏覽文件</h3><p>用列表方式列出文件</p>
+<ul>
+<li>d:目錄 -:文件</li>
+<li>rwx:所屬用戶可讀可寫可執行 </li>
+<li>r-x:所屬群組可讀不可寫可執行 </li>
+<li>r-x:其它用戶可讀不可寫可執行</li>
+<li>root: 所屬用戶</li>
+<li>root:所屬群組 </li>
+<li>4096:文件大小 </li>
+<li>Oct20:文件修改日期 </li>
+<li>apt:文件名稱<pre><code># ls -l
 drwxr-xr-x 6 root root    4096 Oct 20  2017 apt
--rw-r--r-- 1 root root     211 Oct 20  2017 hosts</code><br><br><a href="http://linux.vbird.org/linux_basic/0220filemanager.php" target="_blank" rel="noopener">鳥哥Linux 檔案與目錄管理</a><br><br>### 安裝<br>CentOS 下面是 yum，Ubuntu 下面是 apt-get，mac 使用 brew<br><br><a href="https://brew.sh/index_zh-tw" target="_blank" rel="noopener">Homebrew</a><br><code>CentOS 下面使用 rpm -i jdk-XXX_linux-x64_bin.rpm
-Ubuntu 下面使用 dpkg -i jdk-XXX_linux-x64_bin.deb</code><br>### 環境path設定<br><code>linux為 ./.bashrc
-mac為 ./.bash_profile</code><br>### vim 編輯器<br>i鍵 進入編輯模式<br><br>esc鍵 退出編輯模式<br><br>:wq write &amp; quit<br><br><a href="http://linux.vbird.org/linux_basic/0310vi.php#vi_vim" target="_blank" rel="noopener">鳥哥 vim</a><br><br>### 後台運行程序<br><code>創建
+-rw-r--r-- 1 root root     211 Oct 20  2017 hosts
+</code></pre></li>
+</ul>
+<p><a href="http://linux.vbird.org/linux_basic/0220filemanager.php" target="_blank" rel="noopener">鳥哥Linux 檔案與目錄管理</a></p>
+<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p>CentOS 下面是 yum，Ubuntu 下面是 apt-get，mac 使用 brew</p>
+<p><a href="https://brew.sh/index_zh-tw" target="_blank" rel="noopener">Homebrew</a></p>
+<pre><code>CentOS 下面使用 rpm -i jdk-XXX_linux-x64_bin.rpm
+Ubuntu 下面使用 dpkg -i jdk-XXX_linux-x64_bin.deb
+</code></pre><h3 id="環境path設定"><a href="#環境path設定" class="headerlink" title="環境path設定"></a>環境path設定</h3><pre><code>linux為 ./.bashrc
+mac為 ./.bash_profile
+</code></pre><h3 id="vim-編輯器"><a href="#vim-編輯器" class="headerlink" title="vim 編輯器"></a>vim 編輯器</h3><p>i鍵 進入編輯模式<br>esc鍵 退出編輯模式<br>:wq write &amp; quit<br><a href="http://linux.vbird.org/linux_basic/0310vi.php#vi_vim" target="_blank" rel="noopener">鳥哥 vim</a></p>
+<h3 id="後台運行程序"><a href="#後台運行程序" class="headerlink" title="後台運行程序"></a>後台運行程序</h3><pre><code>創建
 nohup command &gt;out.file 2&gt;&amp;1 &amp;
 刪除
-ps -ef | grep &quot;your_process&quot; | awk &#39;{print $2}&#39; | xargs kill</code><br>这里面，“1”表示文件描述符 1，表示标准输出，“2”表示文件描述符 2，意思是标准错误输出，“2&gt;&amp;1”表示标准输出和错误输出合并了。合并到哪里去呢？到 out.file 里。<br><br><a href="https://livc.io/blog/172" target="_blank" rel="noopener">Linux中的nohup与2&gt;&amp;1 &amp;</a><br>### 開關機<br><code>shutdown -h now 现在就关机
-reboot 就是重启。</code><br><br># 05 学会几个系统调用：咱们公司能接哪些类型的项目？(2019-04-21)<br>### Process Manager
-</em> 1.創建process是由parent process調用<font color="orange">fork</font>創建child process<br><em> 2.創建時會將parent 的 resource 完全copy 一份至 child中
-</em> 3.fork返回後使用 if-else 判返回值判定是child(返回0) or parent(返回 process id)<br><em> 4.若返回parent，接著執行原本還沒做完的工作
-</em> 5.若返回child，調用 execve 開始執行另外一個程序<br><em> 6.此時就完成 fork，child &amp; parent 就完整的分開獨自運行了
-</em> parent 可使用 <font color="orange">waitpid</font> 確認 child  的情況<br><em> os 創建時，會自動創建第一個 parent process(祖宗進程)<br><br><img src="/images/趣谈Linux操作系统-fork_process.png" alt="fork process"><br><img src="/images/趣谈Linux操作系统-fork_resource.png" alt="fork resource"><br><br>### Memory Manager
-</em> 每個process 都有獨立的 memory 空間<br><em> 其空間包含 code segment 與 data segment
-</em> 動態產生的局部變數或是malloc產生的空間稱為 heap<br><em> 32bit 的最大使用 memory 上限為 4gb
-</em> memory 空間是有限的，當真正使用時再由 memory manager 進行分配<br><em> 分配小空間 memory 使用 <font color="orange">brk</font>
-</em> 分配大空間 memory  使用 <font color="orange">mmap</font>
-
+ps -ef | grep &quot;your_process&quot; | awk &#39;{print $2}&#39; | xargs kill 
+</code></pre><p>这里面，“1”表示文件描述符 1，表示标准输出，“2”表示文件描述符 2，意思是标准错误输出，“2&gt;&amp;1”表示标准输出和错误输出合并了。合并到哪里去呢？到 out.file 里。</p>
+<p><a href="https://livc.io/blog/172" target="_blank" rel="noopener">Linux中的nohup与2&gt;&amp;1 &amp;</a></p>
+<h3 id="開關機"><a href="#開關機" class="headerlink" title="開關機"></a>開關機</h3><pre><code>shutdown -h now 现在就关机
+reboot 就是重启。
+</code></pre><hr>
+<h1 id="05-学会几个系统调用：咱们公司能接哪些类型的项目？-2019-04-21"><a href="#05-学会几个系统调用：咱们公司能接哪些类型的项目？-2019-04-21" class="headerlink" title="05 学会几个系统调用：咱们公司能接哪些类型的项目？(2019-04-21)"></a>05 学会几个系统调用：咱们公司能接哪些类型的项目？(2019-04-21)</h1><h3 id="Process-Manager"><a href="#Process-Manager" class="headerlink" title="Process Manager"></a>Process Manager</h3><ul>
+<li>1.創建process是由parent process調用<font color="orange">fork</font>創建child process</li>
+<li>2.創建時會將parent 的 resource 完全copy 一份至 child中</li>
+<li>3.fork返回後使用 if-else 判返回值判定是child(返回0) or parent(返回 process id)</li>
+<li>4.若返回parent，接著執行原本還沒做完的工作</li>
+<li>5.若返回child，調用 execve 開始執行另外一個程序</li>
+<li>6.此時就完成 fork，child &amp; parent 就完整的分開獨自運行了</li>
+<li>parent 可使用 <font color="orange">waitpid</font> 確認 child  的情況</li>
+<li>os 創建時，會自動創建第一個 parent process(祖宗進程)</li>
+</ul>
+<p><img src="/images/趣谈Linux操作系统-fork_process.png" alt="fork process"><br><img src="/images/趣谈Linux操作系统-fork_resource.png" alt="fork resource"></p>
+<h3 id="Memory-Manager"><a href="#Memory-Manager" class="headerlink" title="Memory Manager"></a>Memory Manager</h3><ul>
+<li>每個process 都有獨立的 memory 空間</li>
+<li>其空間包含 code segment 與 data segment</li>
+<li>動態產生的局部變數或是malloc產生的空間稱為 heap</li>
+<li>32bit 的最大使用 memory 上限為 4gb</li>
+<li>memory 空間是有限的，當真正使用時再由 memory manager 進行分配</li>
+<li>分配小空間 memory 使用 <font color="orange">brk</font></li>
+<li>分配大空間 memory  使用 <font color="orange">mmap</font></li>
+</ul>
 <p><img src="/images/趣谈Linux操作系统-memory_manager.png" alt="Memory Manager"></p>
 <h3 id="File-Manager"><a href="#File-Manager" class="headerlink" title="File Manager"></a>File Manager</h3><ul>
 <li><font color="orange">open</font>/<font color="orange">close</font>/<font color="orange">create</font>/<font color="orange">read</font>/<font color="orange">write</font></li>
 <li>open file 之後可以 <font color="orange">lseek</font>  跳到文件的某位置</li>
 </ul>
-<h4 id="Linux的特點，一切皆是文件"><a href="#Linux的特點，一切皆是文件" class="headerlink" title="Linux的特點，一切皆是文件"></a>Linux的特點，一切皆是文件</h4><ul>
+<h3 id="Linux的特點，一切皆是文件"><a href="#Linux的特點，一切皆是文件" class="headerlink" title="Linux的特點，一切皆是文件"></a>Linux的特點，一切皆是文件</h3><ul>
 <li>process本身是二進制的程序文件</li>
 <li>process起動時需要加載配置文件，如 yml properties log 是文本文件</li>
 <li>日志輸出到console 是標準輸出 stdout 文件</li>
@@ -498,10 +532,31 @@ reboot 就是重启。</code><br><br># 05 学会几个系统调用：咱们公�
 <li>為了防止多人同時存取share memory，需要有 semaphore 機制</li>
 </ul>
 <p>當有人存取share memory 時，調用<font color="orange">sem_wait</font>，禁止其它人訪問<br>存取完後調用 <font color="orange">sem_post</font>，其它人才可訪問該 share memory</p>
-<p>查看process所使用的lib<br><br>Linux:ldd<br><br>Mac:otool<br><br>查看process調用的systemcall<br><br>Linux:strace<br><br>Mac:dtruss</p>
+<p>查看process所使用的lib<br>Linux:ldd<br>Mac:otool</p>
+<p>查看process調用的systemcall<br>Linux:strace<br>Mac:dtruss</p>
 <p><a href="https://www.jianshu.com/p/6acd36976fba" target="_blank" rel="noopener">dtrace</a></p>
 <p><img src="/images/趣谈Linux操作系统-systemcall.jpg" alt="System Call"></p>
-
+<hr>
+<h1 id="06-x86架构：有了开放的架构，才能打造开放的营商环境"><a href="#06-x86架构：有了开放的架构，才能打造开放的营商环境" class="headerlink" title="06 x86架构：有了开放的架构，才能打造开放的营商环境"></a>06 x86架构：有了开放的架构，才能打造开放的营商环境</h1><ul>
+<li>CPU包含:運算單元，數據單元，控制單元<ul>
+<li>運算單元:只管運算，其它不知</li>
+<li>數據單元:暫存數據與運算結果</li>
+<li>控制單元:控制運算取得數據並執行，將結果存回數據單元的流程控制<ul>
+<li>指令指針寄存器:存放下一條要取得的指令地址</li>
+<li>指令寄存器:存放要執行的指令</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/趣谈Linux操作系统-資料流向.jpg" alt="資料流向"></p>
+<p>CPU的地址總線寬度直接影響尋址空間(可控制的Memory大小)<br>32位元有32根地址線，可訪問2^32=4G</p>
+<p><img src="/images/趣谈Linux操作系统-memory_address.jpg" alt="Memory Address"></p>
+<p><img src="/images/趣谈Linux操作系统-8086.jpg" alt="8086 Register"></p>
+<p><img src="/images/趣谈Linux操作系统-80386.jpg" alt="80386 Register"></p>
+<p>常用指令<br>move a b :把b值赋给a,使a=b<br>call和ret :call调用子程序，子程序以ret结尾<br>jmp :无条件跳<br>int :中断指令<br>add a b : 加法,a=a+b<br>or :或运算<br>xor :异或运算<br>shl :算术左移<br>ahr :算术右移<br>push xxx :压xxx入栈<br>pop xxx: xxx出栈<br>inc: 加1<br>dec: 减1<br>sub a b : a=a-b<br>cmp: 减法比较，修改标志位</p>
+<hr>
+<h1 id="07-从BIOS到bootloader：创业伊始，有活儿老板自己上"><a href="#07-从BIOS到bootloader：创业伊始，有活儿老板自己上" class="headerlink" title="07 从BIOS到bootloader：创业伊始，有活儿老板自己上"></a>07 从BIOS到bootloader：创业伊始，有活儿老板自己上</h1>
             </div>
             <hr>
 
@@ -616,7 +671,7 @@ reboot 就是重启。</code><br><br># 05 学会几个系统调用：咱们公�
                         <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -648,7 +703,7 @@ reboot 就是重启。</code><br><br># 05 学会几个系统调用：咱们公�
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">Turboted</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/06/趣谈Linux操作系统/" class="b-link-green">趣談Linux操作系統 筆記</a>
+                    <a href="/2019/04/06/趣谈Linux操作系统/" class="b-link-green">趣談Linux操作系統 筆記(1-10)</a>
                 </p>
             </div>
         </div>
@@ -789,7 +844,7 @@ reboot 就是重启。</code><br><br># 05 学会几个系统调用：咱们公�
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1,h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -801,7 +856,7 @@ reboot 就是重启。</code><br><br># 05 学会几个系统调用：咱们公�
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
